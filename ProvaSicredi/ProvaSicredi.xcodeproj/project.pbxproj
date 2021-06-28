@@ -1,0 +1,614 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9DB7A5A9268A483A006662E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A5A8268A483A006662E7 /* AppDelegate.swift */; };
+		9DB7A5AB268A483A006662E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A5AA268A483A006662E7 /* SceneDelegate.swift */; };
+		9DB7A5AD268A483A006662E7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A5AC268A483A006662E7 /* HomeViewController.swift */; };
+		9DB7A5B2268A483B006662E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DB7A5B1268A483B006662E7 /* Assets.xcassets */; };
+		9DB7A5B5268A483B006662E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DB7A5B3268A483B006662E7 /* LaunchScreen.storyboard */; };
+		9DB7A5C0268A483B006662E7 /* ProvaSicrediTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A5BF268A483B006662E7 /* ProvaSicrediTests.swift */; };
+		9DB7A5CB268A483B006662E7 /* ProvaSicrediUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A5CA268A483B006662E7 /* ProvaSicrediUITests.swift */; };
+		9DB7A5E3268A48F5006662E7 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A5E2268A48F5006662E7 /* HomeCoordinator.swift */; };
+		9DB7A5E9268A4909006662E7 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A5E8268A4909006662E7 /* CoordinatorProtocol.swift */; };
+		9DB7A5F1268A49B6006662E7 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A5F0268A49B6006662E7 /* HomeViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9DB7A5BC268A483B006662E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9DB7A59D268A483A006662E7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9DB7A5A4268A483A006662E7;
+			remoteInfo = ProvaSicredi;
+		};
+		9DB7A5C7268A483B006662E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9DB7A59D268A483A006662E7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9DB7A5A4268A483A006662E7;
+			remoteInfo = ProvaSicredi;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9DB7A5A5268A483A006662E7 /* ProvaSicredi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProvaSicredi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DB7A5A8268A483A006662E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9DB7A5AA268A483A006662E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		9DB7A5AC268A483A006662E7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		9DB7A5B1268A483B006662E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9DB7A5B4268A483B006662E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9DB7A5B6268A483B006662E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DB7A5BB268A483B006662E7 /* ProvaSicrediTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProvaSicrediTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DB7A5BF268A483B006662E7 /* ProvaSicrediTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvaSicrediTests.swift; sourceTree = "<group>"; };
+		9DB7A5C1268A483B006662E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DB7A5C6268A483B006662E7 /* ProvaSicrediUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProvaSicrediUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DB7A5CA268A483B006662E7 /* ProvaSicrediUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvaSicrediUITests.swift; sourceTree = "<group>"; };
+		9DB7A5CC268A483B006662E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DB7A5E2268A48F5006662E7 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		9DB7A5E8268A4909006662E7 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
+		9DB7A5F0268A49B6006662E7 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9DB7A5A2268A483A006662E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DB7A5B8268A483B006662E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DB7A5C3268A483B006662E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9DB7A59C268A483A006662E7 = {
+			isa = PBXGroup;
+			children = (
+				9DB7A5A7268A483A006662E7 /* ProvaSicredi */,
+				9DB7A5BE268A483B006662E7 /* ProvaSicrediTests */,
+				9DB7A5C9268A483B006662E7 /* ProvaSicrediUITests */,
+				9DB7A5A6268A483A006662E7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9DB7A5A6268A483A006662E7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9DB7A5A5268A483A006662E7 /* ProvaSicredi.app */,
+				9DB7A5BB268A483B006662E7 /* ProvaSicrediTests.xctest */,
+				9DB7A5C6268A483B006662E7 /* ProvaSicrediUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9DB7A5A7268A483A006662E7 /* ProvaSicredi */ = {
+			isa = PBXGroup;
+			children = (
+				9DB7A5E7268A48FC006662E7 /* Components */,
+				9DB7A5DE268A48C4006662E7 /* Home */,
+				9DB7A5A8268A483A006662E7 /* AppDelegate.swift */,
+				9DB7A5AA268A483A006662E7 /* SceneDelegate.swift */,
+				9DB7A5B1268A483B006662E7 /* Assets.xcassets */,
+				9DB7A5B3268A483B006662E7 /* LaunchScreen.storyboard */,
+				9DB7A5B6268A483B006662E7 /* Info.plist */,
+			);
+			path = ProvaSicredi;
+			sourceTree = "<group>";
+		};
+		9DB7A5BE268A483B006662E7 /* ProvaSicrediTests */ = {
+			isa = PBXGroup;
+			children = (
+				9DB7A5BF268A483B006662E7 /* ProvaSicrediTests.swift */,
+				9DB7A5C1268A483B006662E7 /* Info.plist */,
+			);
+			path = ProvaSicrediTests;
+			sourceTree = "<group>";
+		};
+		9DB7A5C9268A483B006662E7 /* ProvaSicrediUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9DB7A5CA268A483B006662E7 /* ProvaSicrediUITests.swift */,
+				9DB7A5CC268A483B006662E7 /* Info.plist */,
+			);
+			path = ProvaSicrediUITests;
+			sourceTree = "<group>";
+		};
+		9DB7A5DE268A48C4006662E7 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				9DB7A5AC268A483A006662E7 /* HomeViewController.swift */,
+				9DB7A5E2268A48F5006662E7 /* HomeCoordinator.swift */,
+				9DB7A5F0268A49B6006662E7 /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		9DB7A5E7268A48FC006662E7 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9DB7A5E8268A4909006662E7 /* CoordinatorProtocol.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9DB7A5A4268A483A006662E7 /* ProvaSicredi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DB7A5CF268A483B006662E7 /* Build configuration list for PBXNativeTarget "ProvaSicredi" */;
+			buildPhases = (
+				9DB7A5A1268A483A006662E7 /* Sources */,
+				9DB7A5A2268A483A006662E7 /* Frameworks */,
+				9DB7A5A3268A483A006662E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ProvaSicredi;
+			productName = ProvaSicredi;
+			productReference = 9DB7A5A5268A483A006662E7 /* ProvaSicredi.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9DB7A5BA268A483B006662E7 /* ProvaSicrediTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DB7A5D2268A483B006662E7 /* Build configuration list for PBXNativeTarget "ProvaSicrediTests" */;
+			buildPhases = (
+				9DB7A5B7268A483B006662E7 /* Sources */,
+				9DB7A5B8268A483B006662E7 /* Frameworks */,
+				9DB7A5B9268A483B006662E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9DB7A5BD268A483B006662E7 /* PBXTargetDependency */,
+			);
+			name = ProvaSicrediTests;
+			productName = ProvaSicrediTests;
+			productReference = 9DB7A5BB268A483B006662E7 /* ProvaSicrediTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9DB7A5C5268A483B006662E7 /* ProvaSicrediUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DB7A5D5268A483B006662E7 /* Build configuration list for PBXNativeTarget "ProvaSicrediUITests" */;
+			buildPhases = (
+				9DB7A5C2268A483B006662E7 /* Sources */,
+				9DB7A5C3268A483B006662E7 /* Frameworks */,
+				9DB7A5C4268A483B006662E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9DB7A5C8268A483B006662E7 /* PBXTargetDependency */,
+			);
+			name = ProvaSicrediUITests;
+			productName = ProvaSicrediUITests;
+			productReference = 9DB7A5C6268A483B006662E7 /* ProvaSicrediUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9DB7A59D268A483A006662E7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					9DB7A5A4268A483A006662E7 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					9DB7A5BA268A483B006662E7 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 9DB7A5A4268A483A006662E7;
+					};
+					9DB7A5C5268A483B006662E7 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 9DB7A5A4268A483A006662E7;
+					};
+				};
+			};
+			buildConfigurationList = 9DB7A5A0268A483A006662E7 /* Build configuration list for PBXProject "ProvaSicredi" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9DB7A59C268A483A006662E7;
+			productRefGroup = 9DB7A5A6268A483A006662E7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9DB7A5A4268A483A006662E7 /* ProvaSicredi */,
+				9DB7A5BA268A483B006662E7 /* ProvaSicrediTests */,
+				9DB7A5C5268A483B006662E7 /* ProvaSicrediUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9DB7A5A3268A483A006662E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DB7A5B5268A483B006662E7 /* LaunchScreen.storyboard in Resources */,
+				9DB7A5B2268A483B006662E7 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DB7A5B9268A483B006662E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DB7A5C4268A483B006662E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9DB7A5A1268A483A006662E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DB7A5AD268A483A006662E7 /* HomeViewController.swift in Sources */,
+				9DB7A5F1268A49B6006662E7 /* HomeViewModel.swift in Sources */,
+				9DB7A5E3268A48F5006662E7 /* HomeCoordinator.swift in Sources */,
+				9DB7A5E9268A4909006662E7 /* CoordinatorProtocol.swift in Sources */,
+				9DB7A5A9268A483A006662E7 /* AppDelegate.swift in Sources */,
+				9DB7A5AB268A483A006662E7 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DB7A5B7268A483B006662E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DB7A5C0268A483B006662E7 /* ProvaSicrediTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DB7A5C2268A483B006662E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DB7A5CB268A483B006662E7 /* ProvaSicrediUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9DB7A5BD268A483B006662E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9DB7A5A4268A483A006662E7 /* ProvaSicredi */;
+			targetProxy = 9DB7A5BC268A483B006662E7 /* PBXContainerItemProxy */;
+		};
+		9DB7A5C8268A483B006662E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9DB7A5A4268A483A006662E7 /* ProvaSicredi */;
+			targetProxy = 9DB7A5C7268A483B006662E7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9DB7A5B3268A483B006662E7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9DB7A5B4268A483B006662E7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9DB7A5CD268A483B006662E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9DB7A5CE268A483B006662E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9DB7A5D0268A483B006662E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 49M73U85TS;
+				INFOPLIST_FILE = ProvaSicredi/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Klein.Rafael.ProvaSicredi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9DB7A5D1268A483B006662E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 49M73U85TS;
+				INFOPLIST_FILE = ProvaSicredi/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Klein.Rafael.ProvaSicredi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9DB7A5D3268A483B006662E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 49M73U85TS;
+				INFOPLIST_FILE = ProvaSicrediTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Klein.Rafael.ProvaSicrediTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProvaSicredi.app/ProvaSicredi";
+			};
+			name = Debug;
+		};
+		9DB7A5D4268A483B006662E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 49M73U85TS;
+				INFOPLIST_FILE = ProvaSicrediTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Klein.Rafael.ProvaSicrediTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProvaSicredi.app/ProvaSicredi";
+			};
+			name = Release;
+		};
+		9DB7A5D6268A483B006662E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 49M73U85TS;
+				INFOPLIST_FILE = ProvaSicrediUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Klein.Rafael.ProvaSicrediUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ProvaSicredi;
+			};
+			name = Debug;
+		};
+		9DB7A5D7268A483B006662E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 49M73U85TS;
+				INFOPLIST_FILE = ProvaSicrediUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Klein.Rafael.ProvaSicrediUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ProvaSicredi;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9DB7A5A0268A483A006662E7 /* Build configuration list for PBXProject "ProvaSicredi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DB7A5CD268A483B006662E7 /* Debug */,
+				9DB7A5CE268A483B006662E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9DB7A5CF268A483B006662E7 /* Build configuration list for PBXNativeTarget "ProvaSicredi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DB7A5D0268A483B006662E7 /* Debug */,
+				9DB7A5D1268A483B006662E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9DB7A5D2268A483B006662E7 /* Build configuration list for PBXNativeTarget "ProvaSicrediTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DB7A5D3268A483B006662E7 /* Debug */,
+				9DB7A5D4268A483B006662E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9DB7A5D5268A483B006662E7 /* Build configuration list for PBXNativeTarget "ProvaSicrediUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DB7A5D6268A483B006662E7 /* Debug */,
+				9DB7A5D7268A483B006662E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9DB7A59D268A483A006662E7 /* Project object */;
+}
