@@ -11,7 +11,6 @@ final class HomeViewModel {
     
     var homeCoordinator: HomeCoordinator
     var events: [Event] = []
-    let test = "Prova Sicredi Test do commit inicial"
     
     init(coordinator: HomeCoordinator) {
         homeCoordinator = coordinator
