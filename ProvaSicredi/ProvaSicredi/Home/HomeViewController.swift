@@ -44,6 +44,9 @@ final class HomeViewController: UIViewController {
     }
     private let eventsTableView: UITableView = {
         let tableView = UITableView()
+        tableView.rowHeight = 400
+        tableView.backgroundColor = UIColor(red: 0.67, green: 0.67, blue: 0.67, alpha: 1)
+        tableView.separatorStyle = .none
         return tableView
     }()
     private let loadingIndicator: UIActivityIndicatorView = {
