@@ -10,11 +10,29 @@ import Foundation
 final class HomeViewModel {
     
     var homeCoordinator: HomeCoordinator
-    
+    var events: [Event] = []
     let test = "Prova Sicredi Test do commit inicial"
     
     init(coordinator: HomeCoordinator) {
         homeCoordinator = coordinator
     }
     
+    
+    func getEvents(successIndicator: @escaping (Bool) -> Void){
+        APIMethods().getEvents { (events, error) in
+            if error == nil{
+                if let events = events {
+                    self.events = events
+                    successIndicator(true)
+                }
+                else{
+                    successIndicator(false)
+                }
+                
+            }else{
+                successIndicator(false)
+            }
+        }
+        
+    }
 }

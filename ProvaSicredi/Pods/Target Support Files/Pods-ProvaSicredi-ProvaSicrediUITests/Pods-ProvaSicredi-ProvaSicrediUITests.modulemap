@@ -1,0 +1,6 @@
+framework module Pods_ProvaSicredi_ProvaSicrediUITests {
+  umbrella header "Pods-ProvaSicredi-ProvaSicrediUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

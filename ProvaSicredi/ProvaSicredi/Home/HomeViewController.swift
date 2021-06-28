@@ -7,8 +7,18 @@
 
 import UIKit
 
-final class HomeViewController: UIViewController {
+enum SetupHomeConstraintsEnum {
+    case loading
+    case table
+    case error
+}
+enum EnumRemoveType {
+    case tableView
+    case error
+}
 
+final class HomeViewController: UIViewController {
+    
     var homeViewModel: HomeViewModel
     
     init(viewModel: HomeViewModel) {
@@ -25,30 +35,125 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1)
         self.navigationItem.title = "Prova Sicredi"
-        setupConstraints()
         configureView()
+        eventsTableView.delegate = self
+        eventsTableView.dataSource = self
+        eventsTableView.register(HomeTableViewCell.self, forCellReuseIdentifier: "eventCell")
+        errorButton.addTarget(self, action: #selector(configureView), for: .touchDown)
         
     }
-    private let labelTest: UILabel = {
-        var label = UILabel()
-        label.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+    private let eventsTableView: UITableView = {
+        let tableView = UITableView()
+        return tableView
+    }()
+    private let loadingIndicator: UIActivityIndicatorView = {
+        let loadView = UIActivityIndicatorView()
+        loadView.hidesWhenStopped = true
+        loadView.style = .large
+        return loadView
+    }()
+    private let errorLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor(red: 0.988, green: 0.988, blue: 0.988, alpha: 1)
+        label.numberOfLines = 0
         label.textAlignment = .center
+        label.text = "Ops! \n Ocorreu algum erro. \n Clique no botão para tentar novamente."
         return label
     }()
-    
-    private func setupConstraints(){
-        
-        view.addSubview(labelTest)
-        labelTest.translatesAutoresizingMaskIntoConstraints = false
-        
-        labelTest.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 18).isActive = true
-        view.trailingAnchor.constraint(equalTo: labelTest.trailingAnchor, constant: 18).isActive = true
-        labelTest.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        
+    private let errorButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Recarregar", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0)
+        return button
+    }()
+    private func removeItensFromSuperview(toRemove: EnumRemoveType){
+        if toRemove == .error{
+            errorButton.removeFromSuperview()
+            errorLabel.removeFromSuperview()
+        }
+        else{
+            eventsTableView.removeFromSuperview()
+        }
     }
     
-    private func configureView() {
-        labelTest.text = homeViewModel.test
+    private func setupConstraints(method: SetupHomeConstraintsEnum){
+        if(method == .loading){
+            
+            view.addSubview(loadingIndicator)
+            loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
+            
+            loadingIndicator.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor).isActive = true
+            loadingIndicator.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+            view.trailingAnchor.constraint(equalTo: loadingIndicator.trailingAnchor).isActive = true
+            loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+            view.bottomAnchor.constraint(equalTo: loadingIndicator.bottomAnchor).isActive = true
+            
+            loadingIndicator.startAnimating()
+            
+        }else if(method == .table){
+            self.loadingIndicator.stopAnimating()
+            view.addSubview(eventsTableView)
+            eventsTableView.translatesAutoresizingMaskIntoConstraints = false
+            
+            eventsTableView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor).isActive = true
+            eventsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+            view.trailingAnchor.constraint(equalTo: eventsTableView.trailingAnchor).isActive = true
+            eventsTableView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+            view.bottomAnchor.constraint(equalTo: eventsTableView.bottomAnchor).isActive = true
+        }else if(method == .error){
+            self.loadingIndicator.stopAnimating()
+            view.addSubview(errorLabel)
+            errorLabel.translatesAutoresizingMaskIntoConstraints = false
+            
+            errorLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 18).isActive = true
+            view.trailingAnchor.constraint(equalTo: errorLabel.trailingAnchor, constant: 18).isActive = true
+            errorLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+            
+            view.addSubview(errorButton)
+            errorButton.translatesAutoresizingMaskIntoConstraints = false
+            
+            errorButton.topAnchor.constraint(equalTo: errorLabel.bottomAnchor, constant: 12).isActive = true
+            errorButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 18).isActive = true
+            view.trailingAnchor.constraint(equalTo: errorButton.trailingAnchor, constant: 18).isActive = true
+        }
+    }
+    
+    @objc private func configureView() {
+        removeItensFromSuperview(toRemove: .error)
+        setupConstraints(method: .loading)
+        
+        homeViewModel.getEvents { (bool) in
+            if(bool){
+                
+                DispatchQueue.main.async {
+                    self.removeItensFromSuperview(toRemove: .error)
+                    self.setupConstraints(method: .table)
+                    self.eventsTableView.reloadData()
+                }
+            }else{
+                DispatchQueue.main.async {
+                    self.removeItensFromSuperview(toRemove: .tableView)
+                    self.setupConstraints(method: .error)
+                }
+            }
+        }
     }
 }
-
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return homeViewModel.events.count > 0 ? homeViewModel.events.count : 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! HomeTableViewCell
+        cell.setupConstraints()
+        let indexData = homeViewModel.events[indexPath.row]
+        cell.createCell(with: indexData)
+        return cell
+    }
+    
+    
+    
+    
+}
