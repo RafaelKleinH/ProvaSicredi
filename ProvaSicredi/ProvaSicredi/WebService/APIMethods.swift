@@ -30,5 +30,27 @@ final class APIMethods {
         }
         
     }
+    func PostPresence(onComplete: @escaping (ErrorType?) -> Void ,body: PresenceDAO) {
+        let url = "http://5f5a8f24d44d640016169133.mockapi.io/api/checkin"
+        guard let body = try? JSONEncoder().encode(body) else {return}
+        
+        APIService().callAPI(HTTPMethod: .POST ,body: body, urlStringToRequest: url) { (data, error) in
+            if error == nil{
+                if let data = data{
+                    do{
+                        let data = try JSONDecoder().decode([Event].self, from: data)
+                        print(data.count)
+                        onComplete( nil)
+                    }
+                    catch{
+                        print("JSON Serialization error")
+                        onComplete(.decodable)
+                    }
+                }
+            }else{
+                onComplete(.decodable)
+            }
+        }
+    }
     
 }

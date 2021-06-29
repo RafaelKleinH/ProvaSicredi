@@ -21,7 +21,8 @@ class HomeTableViewCell: UITableViewCell {
     private let eventTitleLabel : UILabel = {
         var label = UILabel()
         label.numberOfLines = 0
-        label.textColor = .white
+        label.font = UIFont(name: "Montserrat-SemiBold", size: 18)
+        label.textColor = UIColor(red: 252/255, green: 25/255, blue: 63/255, alpha: 1)
         return label
     }()
     private let eventImageView: UIImageView = {
@@ -32,21 +33,24 @@ class HomeTableViewCell: UITableViewCell {
     private let eventDateLabel : UILabel = {
         var label = UILabel()
         label.numberOfLines = 0
-        label.textColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
+        label.font = UIFont(name: "Montserrat-Regular", size: 18)
+        label.textColor = UIColor(red: 120/255, green: 120/255, blue: 120/255, alpha: 1)
         return label
     }()
     private let eventPriceLabel : UILabel = {
         var label = UILabel()
         label.numberOfLines = 0
-        label.textColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
+        label.font = UIFont(name: "Montserrat-Regular", size: 18)
+        label.textColor = UIColor(red: 120/255, green: 120/255, blue: 120/255, alpha: 1)
         return label
     }()
     func setupConstraints(){
-        backgroundColor = UIColor(red: 0.67, green: 0.67, blue: 0.67, alpha: 1)
+        backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         
         addSubview(eventImageView)
         eventImageView.translatesAutoresizingMaskIntoConstraints = false
         
+        eventImageView.topAnchor.constraint(equalTo: self.topAnchor,constant: 10).isActive = true
         eventImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         eventImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
         self.trailingAnchor.constraint(equalTo: eventImageView.trailingAnchor, constant: 10).isActive = true
@@ -72,6 +76,7 @@ class HomeTableViewCell: UITableViewCell {
         eventPriceLabel.topAnchor.constraint(equalTo: eventDateLabel.bottomAnchor, constant: 8).isActive = true
         eventPriceLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8).isActive = true
         self.trailingAnchor.constraint(equalTo: eventPriceLabel.trailingAnchor, constant: 8).isActive = true
+        
     }
     
     
