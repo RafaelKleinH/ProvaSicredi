@@ -34,7 +34,9 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1)
-        self.navigationItem.title = "Prova Sicredi"
+        self.navigationItem.title = "Eventos"
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
         configureView()
         eventsTableView.delegate = self
         eventsTableView.dataSource = self
@@ -155,8 +157,11 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
         cell.createCell(with: indexData)
         return cell
     }
-    
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let naviC = navigationController{
+            DetailsViewCoordinator(navigationController: naviC, event: homeViewModel.events[indexPath.row]).start()
+        }
+    }
     
     
 }

@@ -25,6 +25,10 @@
 		9DB7A605268A5218006662E7 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A604268A5218006662E7 /* People.swift */; };
 		9DB7A615268A61D6006662E7 /* APIMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A614268A61D6006662E7 /* APIMethods.swift */; };
 		9DB7A61A268A662D006662E7 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A619268A662D006662E7 /* HomeTableViewCell.swift */; };
+		9DB7A623268A90EF006662E7 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A622268A90EF006662E7 /* DetailsViewController.swift */; };
+		9DB7A62B268A90FB006662E7 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A62A268A90FB006662E7 /* DetailsViewModel.swift */; };
+		9DB7A633268A9111006662E7 /* DetailsViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A632268A9111006662E7 /* DetailsViewCoordinator.swift */; };
+		9DB7A638268AAE24006662E7 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A637268AAE24006662E7 /* Components.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +77,10 @@
 		9DB7A604268A5218006662E7 /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
 		9DB7A614268A61D6006662E7 /* APIMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMethods.swift; sourceTree = "<group>"; };
 		9DB7A619268A662D006662E7 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		9DB7A622268A90EF006662E7 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		9DB7A62A268A90FB006662E7 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		9DB7A632268A9111006662E7 /* DetailsViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewCoordinator.swift; sourceTree = "<group>"; };
+		9DB7A637268AAE24006662E7 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		B814617F6643F5761EAB3659 /* Pods-ProvaSicredi-ProvaSicrediUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProvaSicredi-ProvaSicrediUITests.release.xcconfig"; path = "Target Support Files/Pods-ProvaSicredi-ProvaSicrediUITests/Pods-ProvaSicredi-ProvaSicrediUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BFD69B2FF06A114DFD87A3EC /* Pods-ProvaSicredi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProvaSicredi.release.xcconfig"; path = "Target Support Files/Pods-ProvaSicredi/Pods-ProvaSicredi.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,12 +161,13 @@
 		9DB7A5A7268A483A006662E7 /* ProvaSicredi */ = {
 			isa = PBXGroup;
 			children = (
+				9DB7A5AA268A483A006662E7 /* SceneDelegate.swift */,
+				9DB7A5A8268A483A006662E7 /* AppDelegate.swift */,
 				9DB7A5FE268A51E2006662E7 /* Models */,
 				9DB7A5F8268A5190006662E7 /* WebService */,
 				9DB7A5E7268A48FC006662E7 /* Components */,
-				9DB7A5DE268A48C4006662E7 /* Home */,
-				9DB7A5A8268A483A006662E7 /* AppDelegate.swift */,
-				9DB7A5AA268A483A006662E7 /* SceneDelegate.swift */,
+				9DB7A5DE268A48C4006662E7 /* HomeView */,
+				9DB7A621268A90B5006662E7 /* DetailsView */,
 				9DB7A5B1268A483B006662E7 /* Assets.xcassets */,
 				9DB7A5B3268A483B006662E7 /* LaunchScreen.storyboard */,
 				9DB7A5B6268A483B006662E7 /* Info.plist */,
@@ -184,7 +193,7 @@
 			path = ProvaSicrediUITests;
 			sourceTree = "<group>";
 		};
-		9DB7A5DE268A48C4006662E7 /* Home */ = {
+		9DB7A5DE268A48C4006662E7 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
 				9DB7A5AC268A483A006662E7 /* HomeViewController.swift */,
@@ -192,13 +201,14 @@
 				9DB7A5E2268A48F5006662E7 /* HomeCoordinator.swift */,
 				9DB7A5F0268A49B6006662E7 /* HomeViewModel.swift */,
 			);
-			path = Home;
+			path = HomeView;
 			sourceTree = "<group>";
 		};
 		9DB7A5E7268A48FC006662E7 /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				9DB7A5E8268A4909006662E7 /* CoordinatorProtocol.swift */,
+				9DB7A637268AAE24006662E7 /* Components.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -219,6 +229,16 @@
 				9DB7A604268A5218006662E7 /* People.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		9DB7A621268A90B5006662E7 /* DetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				9DB7A622268A90EF006662E7 /* DetailsViewController.swift */,
+				9DB7A62A268A90FB006662E7 /* DetailsViewModel.swift */,
+				9DB7A632268A9111006662E7 /* DetailsViewCoordinator.swift */,
+			);
+			path = DetailsView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -444,13 +464,17 @@
 				9DB7A615268A61D6006662E7 /* APIMethods.swift in Sources */,
 				9DB7A5AD268A483A006662E7 /* HomeViewController.swift in Sources */,
 				9DB7A5FA268A51A9006662E7 /* APIService.swift in Sources */,
+				9DB7A638268AAE24006662E7 /* Components.swift in Sources */,
+				9DB7A633268A9111006662E7 /* DetailsViewCoordinator.swift in Sources */,
 				9DB7A5F1268A49B6006662E7 /* HomeViewModel.swift in Sources */,
 				9DB7A61A268A662D006662E7 /* HomeTableViewCell.swift in Sources */,
 				9DB7A605268A5218006662E7 /* People.swift in Sources */,
 				9DB7A5E3268A48F5006662E7 /* HomeCoordinator.swift in Sources */,
 				9DB7A5E9268A4909006662E7 /* CoordinatorProtocol.swift in Sources */,
+				9DB7A62B268A90FB006662E7 /* DetailsViewModel.swift in Sources */,
 				9DB7A5A9268A483A006662E7 /* AppDelegate.swift in Sources */,
 				9DB7A5AB268A483A006662E7 /* SceneDelegate.swift in Sources */,
+				9DB7A623268A90EF006662E7 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
