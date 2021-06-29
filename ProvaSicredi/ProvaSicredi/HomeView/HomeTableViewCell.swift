@@ -73,19 +73,11 @@ class HomeTableViewCell: UITableViewCell {
         eventPriceLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8).isActive = true
         self.trailingAnchor.constraint(equalTo: eventPriceLabel.trailingAnchor, constant: 8).isActive = true
     }
-    func convertEpochDate(epoch: Int) -> String{
-        let timeInterval = TimeInterval(epoch)
-        let myDate = NSDate(timeIntervalSince1970: timeInterval)
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy - HH:mm"
-        dateFormatter.timeZone = TimeZone(secondsFromGMT: -3600*3)
-        let ConvertedDate = dateFormatter.string(from: myDate as Date)
-        return "\(ConvertedDate)"
-    }
+    
     
     func createCell(with event: Event){
         eventTitleLabel.text = event.title
-        let date = convertEpochDate(epoch: event.date)
+        let date = Components().convertEpochDate(epoch: event.date)
         eventDateLabel.text = "Data: \(date)"
         eventPriceLabel.text = "R$: \(event.price)"
         let url = URL(string: event.image)

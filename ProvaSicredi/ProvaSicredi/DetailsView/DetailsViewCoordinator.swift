@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class DetailsViewCoordinator: Coordinator {
+final class DetailsViewCoordinator: Coordinator {
 
     var navigationController: UINavigationController
     var event: Event
@@ -19,7 +19,7 @@ class DetailsViewCoordinator: Coordinator {
     }
     
     func start() {
-        let viewModel = DetailsViewModel(coordinator:self)
+        let viewModel = DetailsViewModel(coordinator:self, event: event)
         let viewController = DetailsViewController(viewModel: viewModel)
         
         navigationController.pushViewController(viewController, animated: true)
