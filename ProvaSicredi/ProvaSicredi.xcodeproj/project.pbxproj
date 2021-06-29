@@ -10,6 +10,15 @@
 		22177E8A5F59652B3D64CB65 /* Pods_ProvaSicredi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6825DFC48484E7A4CB6FD3FE /* Pods_ProvaSicredi.framework */; };
 		4C38CD829B51D6265AE878F0 /* Pods_ProvaSicrediTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 551DEA9FDE2DA3A163AA77BD /* Pods_ProvaSicrediTests.framework */; };
 		6EDC086BC30FF92DDD5B31A2 /* Pods_ProvaSicredi_ProvaSicrediUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E18E680405CCC39E842A078 /* Pods_ProvaSicredi_ProvaSicrediUITests.framework */; };
+		9D7CFF2A268B8CEF00A48C9E /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D7CFF29268B8CEF00A48C9E /* Montserrat-SemiBold.ttf */; };
+		9D7CFF2F268B8D0C00A48C9E /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D7CFF2E268B8D0C00A48C9E /* Montserrat-Regular.ttf */; };
+		9D7CFF34268B8D1E00A48C9E /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D7CFF33268B8D1E00A48C9E /* Montserrat-Bold.ttf */; };
+		9D7CFF3A268BA05200A48C9E /* PresenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7CFF39268BA05200A48C9E /* PresenceViewController.swift */; };
+		9D7CFF42268BA05E00A48C9E /* PresenceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7CFF41268BA05E00A48C9E /* PresenceViewModel.swift */; };
+		9D7CFF47268BA06C00A48C9E /* PresenceCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7CFF46268BA06C00A48C9E /* PresenceCoordinator.swift */; };
+		9D7CFF5A268BAC0500A48C9E /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D7CFF59268BAC0500A48C9E /* Montserrat-Light.ttf */; };
+		9D7CFF6A268BB8D100A48C9E /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7CFF69268BB8D100A48C9E /* StringExtension.swift */; };
+		9D7CFF6F268BBDC300A48C9E /* PresenceDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7CFF6E268BBDC300A48C9E /* PresenceDAO.swift */; };
 		9DB7A5A9268A483A006662E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A5A8268A483A006662E7 /* AppDelegate.swift */; };
 		9DB7A5AB268A483A006662E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A5AA268A483A006662E7 /* SceneDelegate.swift */; };
 		9DB7A5AD268A483A006662E7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A5AC268A483A006662E7 /* HomeViewController.swift */; };
@@ -56,6 +65,15 @@
 		8E18E680405CCC39E842A078 /* Pods_ProvaSicredi_ProvaSicrediUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProvaSicredi_ProvaSicrediUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		902D133BC7635545E19AA424 /* Pods-ProvaSicredi-ProvaSicrediUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProvaSicredi-ProvaSicrediUITests.debug.xcconfig"; path = "Target Support Files/Pods-ProvaSicredi-ProvaSicrediUITests/Pods-ProvaSicredi-ProvaSicrediUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9991B76834D98E635CDFD572 /* Pods-ProvaSicrediTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProvaSicrediTests.release.xcconfig"; path = "Target Support Files/Pods-ProvaSicrediTests/Pods-ProvaSicrediTests.release.xcconfig"; sourceTree = "<group>"; };
+		9D7CFF29268B8CEF00A48C9E /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		9D7CFF2E268B8D0C00A48C9E /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		9D7CFF33268B8D1E00A48C9E /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		9D7CFF39268BA05200A48C9E /* PresenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenceViewController.swift; sourceTree = "<group>"; };
+		9D7CFF41268BA05E00A48C9E /* PresenceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenceViewModel.swift; sourceTree = "<group>"; };
+		9D7CFF46268BA06C00A48C9E /* PresenceCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenceCoordinator.swift; sourceTree = "<group>"; };
+		9D7CFF59268BAC0500A48C9E /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
+		9D7CFF69268BB8D100A48C9E /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		9D7CFF6E268BBDC300A48C9E /* PresenceDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenceDAO.swift; sourceTree = "<group>"; };
 		9DB7A5A5268A483A006662E7 /* ProvaSicredi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProvaSicredi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DB7A5A8268A483A006662E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DB7A5AA268A483A006662E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +154,27 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9D7CFF28268B8CA100A48C9E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9D7CFF29268B8CEF00A48C9E /* Montserrat-SemiBold.ttf */,
+				9D7CFF33268B8D1E00A48C9E /* Montserrat-Bold.ttf */,
+				9D7CFF59268BAC0500A48C9E /* Montserrat-Light.ttf */,
+				9D7CFF2E268B8D0C00A48C9E /* Montserrat-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9D7CFF38268BA02A00A48C9E /* PresenceView */ = {
+			isa = PBXGroup;
+			children = (
+				9D7CFF39268BA05200A48C9E /* PresenceViewController.swift */,
+				9D7CFF41268BA05E00A48C9E /* PresenceViewModel.swift */,
+				9D7CFF46268BA06C00A48C9E /* PresenceCoordinator.swift */,
+			);
+			path = PresenceView;
+			sourceTree = "<group>";
+		};
 		9DB7A59C268A483A006662E7 = {
 			isa = PBXGroup;
 			children = (
@@ -163,13 +202,15 @@
 			children = (
 				9DB7A5AA268A483A006662E7 /* SceneDelegate.swift */,
 				9DB7A5A8268A483A006662E7 /* AppDelegate.swift */,
+				9DB7A5DE268A48C4006662E7 /* HomeView */,
+				9DB7A621268A90B5006662E7 /* DetailsView */,
+				9D7CFF38268BA02A00A48C9E /* PresenceView */,
 				9DB7A5FE268A51E2006662E7 /* Models */,
 				9DB7A5F8268A5190006662E7 /* WebService */,
 				9DB7A5E7268A48FC006662E7 /* Components */,
-				9DB7A5DE268A48C4006662E7 /* HomeView */,
-				9DB7A621268A90B5006662E7 /* DetailsView */,
-				9DB7A5B1268A483B006662E7 /* Assets.xcassets */,
+				9D7CFF28268B8CA100A48C9E /* Fonts */,
 				9DB7A5B3268A483B006662E7 /* LaunchScreen.storyboard */,
+				9DB7A5B1268A483B006662E7 /* Assets.xcassets */,
 				9DB7A5B6268A483B006662E7 /* Info.plist */,
 			);
 			path = ProvaSicredi;
@@ -209,6 +250,7 @@
 			children = (
 				9DB7A5E8268A4909006662E7 /* CoordinatorProtocol.swift */,
 				9DB7A637268AAE24006662E7 /* Components.swift */,
+				9D7CFF69268BB8D100A48C9E /* StringExtension.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -227,6 +269,7 @@
 			children = (
 				9DB7A5FF268A51F1006662E7 /* Event.swift */,
 				9DB7A604268A5218006662E7 /* People.swift */,
+				9D7CFF6E268BBDC300A48C9E /* PresenceDAO.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -348,6 +391,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D7CFF5A268BAC0500A48C9E /* Montserrat-Light.ttf in Resources */,
+				9D7CFF34268B8D1E00A48C9E /* Montserrat-Bold.ttf in Resources */,
+				9D7CFF2F268B8D0C00A48C9E /* Montserrat-Regular.ttf in Resources */,
+				9D7CFF2A268B8CEF00A48C9E /* Montserrat-SemiBold.ttf in Resources */,
 				9DB7A5B5268A483B006662E7 /* LaunchScreen.storyboard in Resources */,
 				9DB7A5B2268A483B006662E7 /* Assets.xcassets in Resources */,
 			);
@@ -461,18 +508,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DB7A600268A51F1006662E7 /* Event.swift in Sources */,
+				9D7CFF6F268BBDC300A48C9E /* PresenceDAO.swift in Sources */,
 				9DB7A615268A61D6006662E7 /* APIMethods.swift in Sources */,
 				9DB7A5AD268A483A006662E7 /* HomeViewController.swift in Sources */,
 				9DB7A5FA268A51A9006662E7 /* APIService.swift in Sources */,
 				9DB7A638268AAE24006662E7 /* Components.swift in Sources */,
 				9DB7A633268A9111006662E7 /* DetailsViewCoordinator.swift in Sources */,
+				9D7CFF42268BA05E00A48C9E /* PresenceViewModel.swift in Sources */,
 				9DB7A5F1268A49B6006662E7 /* HomeViewModel.swift in Sources */,
 				9DB7A61A268A662D006662E7 /* HomeTableViewCell.swift in Sources */,
 				9DB7A605268A5218006662E7 /* People.swift in Sources */,
 				9DB7A5E3268A48F5006662E7 /* HomeCoordinator.swift in Sources */,
+				9D7CFF47268BA06C00A48C9E /* PresenceCoordinator.swift in Sources */,
 				9DB7A5E9268A4909006662E7 /* CoordinatorProtocol.swift in Sources */,
+				9D7CFF3A268BA05200A48C9E /* PresenceViewController.swift in Sources */,
 				9DB7A62B268A90FB006662E7 /* DetailsViewModel.swift in Sources */,
 				9DB7A5A9268A483A006662E7 /* AppDelegate.swift in Sources */,
+				9D7CFF6A268BB8D100A48C9E /* StringExtension.swift in Sources */,
 				9DB7A5AB268A483A006662E7 /* SceneDelegate.swift in Sources */,
 				9DB7A623268A90EF006662E7 /* DetailsViewController.swift in Sources */,
 			);

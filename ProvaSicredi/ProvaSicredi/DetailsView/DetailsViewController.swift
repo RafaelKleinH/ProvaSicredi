@@ -30,23 +30,21 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         navigationItem.title = "Descrição do evento"
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "arrow"), style: .plain, target: self, action: #selector(popToPrevious))
         let shareBar: UIBarButtonItem = UIBarButtonItem.init(barButtonSystemItem:.action, target: self, action: #selector(userDidTapShare))
-        
+        presenceButton.addTarget(self, action: #selector(goToPresenceView), for: .touchDown)
         self.navigationItem.rightBarButtonItem = shareBar
-        
-        
         navigationController?.interactivePopGestureRecognizer?.delegate = self
-        
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
     }
     private let eventScrollView: UIScrollView = {
         let scrollView =  UIScrollView()
+        scrollView.backgroundColor = .white
         return scrollView
     }()
     private let viewInScroll: UIView = {
         let view = UIView()
-        view.backgroundColor = .black
+        view.backgroundColor = .white
         return view
     }()
     private let eventImageView: UIImageView = {
@@ -56,10 +54,10 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
     }()
     private let eventTitleLabel: UILabel = {
         var Label = UILabel()
-        Label.textColor = .white
         Label.numberOfLines = 0
         Label.lineBreakMode = .byWordWrapping
-        Label.font = UIFont(name: "system", size: 18)
+        Label.textColor = UIColor(red: 252/255, green: 25/255, blue: 63/255, alpha: 1)
+        Label.font = UIFont(name: "Montserrat-Bold", size: 18)
         return Label
     }()
     private let eventDescriptionLabel: UILabel = {
@@ -67,6 +65,8 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         Label.textColor = .white
         Label.numberOfLines = 0
         Label.lineBreakMode = .byWordWrapping
+        Label.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        Label.font = UIFont(name: "Montserrat-Light", size: 14)
         return Label
     }()
     private let eventDateLabel: UILabel = {
@@ -74,6 +74,8 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         Label.textColor = .white
         Label.numberOfLines = 0
         Label.lineBreakMode = .byWordWrapping
+        Label.textColor = UIColor(red: 252/255, green: 25/255, blue: 63/255, alpha: 1)
+        Label.font = UIFont(name: "Montserrat-SemiBold", size: 14)
         return Label
     }()
     private let eventPriceLabel: UILabel = {
@@ -81,6 +83,8 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         Label.textColor = .white
         Label.numberOfLines = 0
         Label.lineBreakMode = .byWordWrapping
+        Label.textColor = UIColor(red: 252/255, green: 25/255, blue: 63/255, alpha: 1)
+        Label.font = UIFont(name: "Montserrat-SemiBold", size: 14)
         return Label
     }()
     private let eventLocalLabel: UILabel = {
@@ -88,30 +92,28 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         Label.textColor = .white
         Label.numberOfLines = 0
         Label.lineBreakMode = .byWordWrapping
+        Label.textColor = UIColor(red: 252/255, green: 25/255, blue: 63/255, alpha: 1)
+        Label.font = UIFont(name: "Montserrat-SemiBold", size: 14)
         return Label
     }()
     private let presenceButton: UIButton = {
         var button = UIButton()
-        button.setTitle("Marcar Presença", for: .normal)
-        button.layer.borderColor =  UIColor(red: 53/255, green: 149/255, blue: 204/255, alpha: 1).cgColor
-        button.layer.borderWidth = 2
-        button.layer.masksToBounds = true
+        button.setTitle("Inscreva-se", for: .normal)
+        button.layer.shadowOffset = CGSize(width: 0.0, height: 4.0)
+        button.layer.cornerRadius = 8
+        button.titleLabel?.font = UIFont(name: "Montserrat-SemiBold", size: 16)
+        button.backgroundColor = UIColor(red: 252/255, green: 25/255, blue: 63/255, alpha: 1)
         return button
     }()
     
     
     func setupConstraints(){
         
-        view.addSubview(eventImageView)
-        eventImageView.translatesAutoresizingMaskIntoConstraints = false
-        eventImageView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor,constant: 10).isActive = true
-        eventImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
-        view.trailingAnchor.constraint(equalTo: eventImageView.trailingAnchor, constant: 10).isActive = true
-        eventImageView.heightAnchor.constraint(equalToConstant: view.bounds.width - 20).isActive = true
+    
         
         view.addSubview(eventScrollView)
         eventScrollView.translatesAutoresizingMaskIntoConstraints = false
-        eventScrollView.topAnchor.constraint(equalTo: eventImageView.bottomAnchor,constant: 10).isActive = true
+        eventScrollView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor).isActive = true
         eventScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         eventScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         eventScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
@@ -126,14 +128,19 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         viewInScroll.bottomAnchor.constraint(equalTo: eventScrollView.bottomAnchor).isActive = true
         
         
-        
+        viewInScroll.addSubview(eventImageView)
+        eventImageView.translatesAutoresizingMaskIntoConstraints = false
+        eventImageView.topAnchor.constraint(equalTo: viewInScroll.topAnchor,constant: 10).isActive = true
+        eventImageView.leadingAnchor.constraint(equalTo: viewInScroll.leadingAnchor, constant: 10).isActive = true
+        viewInScroll.trailingAnchor.constraint(equalTo: eventImageView.trailingAnchor, constant: 10).isActive = true
+        eventImageView.heightAnchor.constraint(equalToConstant: view.bounds.width - 20).isActive = true
         
         
         viewInScroll.addSubview(eventTitleLabel)
         eventTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        eventTitleLabel.topAnchor.constraint(equalTo: viewInScroll.topAnchor, constant: 10).isActive = true
+        eventTitleLabel.topAnchor.constraint(equalTo: eventImageView.bottomAnchor, constant: 10).isActive = true
         eventTitleLabel.leadingAnchor.constraint(equalTo: eventScrollView.leadingAnchor, constant: 12).isActive = true
-        eventTitleLabel.trailingAnchor.constraint(equalTo: eventScrollView.trailingAnchor, constant: 12).isActive = true
+        eventScrollView.trailingAnchor.constraint(equalTo: eventTitleLabel.trailingAnchor, constant: 12).isActive = true
         
         
         viewInScroll.addSubview(eventDescriptionLabel)
@@ -168,10 +175,8 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         presenceButton.translatesAutoresizingMaskIntoConstraints = false
         presenceButton.leadingAnchor.constraint(equalTo: viewInScroll.leadingAnchor, constant: 47).isActive = true
         view.trailingAnchor.constraint(equalTo: presenceButton.trailingAnchor, constant: 47).isActive = true
-        presenceButton.topAnchor.constraint(equalTo: eventLocalLabel.bottomAnchor,constant: 10).isActive = true
-        
-        
-        presenceButton.bottomAnchor.constraint(lessThanOrEqualTo: viewInScroll.bottomAnchor,constant: -10).isActive = true
+        presenceButton.topAnchor.constraint(equalTo: eventLocalLabel.bottomAnchor,constant: 24).isActive = true
+        presenceButton.bottomAnchor.constraint(lessThanOrEqualTo: viewInScroll.bottomAnchor,constant: -24).isActive = true
         
     }
     func configureView(){
@@ -183,7 +188,7 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         eventDateLabel.text = "\(date)"
         eventPriceLabel.text = "R$: \(viewModel.event.price)"
         viewModel.getLocation { (location) in
-            self.eventLocalLabel.text = location
+            self.eventLocalLabel.text = "Local: \(location)"
         }
         let url = URL(string: viewModel.event.image)
         if let url = url {
@@ -200,7 +205,10 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
     @objc func popToPrevious(){
         viewModel.coordinator.popToPrevius()
     }
-    @objc func userDidTapShare(_ sender: UIButton) {
+    @objc func goToPresenceView(){
+        viewModel.coordinator.goToPresenceView()
+    }
+    @objc func userDidTapShare() {
         let title = viewModel.event.title
         let date = Components().convertEpochDate(epoch: viewModel.event.date)
         let price = "RS: \(viewModel.event.price)"
@@ -212,14 +220,9 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
                 print("Deu certin")
             }else{
                 print("canceled")
-                
             }
-            
         }
-        activityController.popoverPresentationController?.sourceView = sender
         present(activityController, animated: true){
-            
         }
     }
-    
 }

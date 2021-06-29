@@ -30,6 +30,11 @@ final class DetailsViewCoordinator: Coordinator {
         navigationController.popViewController(animated: true)
         
     }
+    func goToPresenceView(){
+      
+            PresenceCoordinator(navigationController: navigationController, event: event).start()
+        
+    }
     
     
 }

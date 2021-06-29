@@ -14,7 +14,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var coordinator: Coordinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    
+       
+        let font:UIFont = UIFont(name: "Montserrat-SemiBold", size: 18.0)!
+        let navbarTitleAtt = [
+            NSAttributedString.Key.font:font,
+            NSAttributedString.Key.foregroundColor: UIColor.white
+        ]
+        UINavigationBar.appearance().titleTextAttributes = navbarTitleAtt
+        UINavigationBar.appearance().barTintColor = UIColor(red: 252/255, green: 25/255, blue: 63/255, alpha: 1)
         
         self.window = UIWindow.init()
         self.window?.bounds = UIScreen.main.bounds

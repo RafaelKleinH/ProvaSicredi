@@ -11,8 +11,11 @@ target 'ProvaSicredi' do
     inherit! :search_paths
     # Pods for testing
 
+  # Rx pods
 	pod 'RxSwift'
 	pod 'RxCocoa'
+  
+  # TextField/Area pods
 	pod 'MaterialComponents/TextControls+FilledTextFields'
  	pod 'MaterialComponents/TextControls+FilledTextAreas'
   end

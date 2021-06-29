@@ -33,7 +33,7 @@ final class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1)
+        view.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         self.navigationItem.title = "Eventos"
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
@@ -46,8 +46,8 @@ final class HomeViewController: UIViewController {
     }
     private let eventsTableView: UITableView = {
         let tableView = UITableView()
-        tableView.rowHeight = 400
-        tableView.backgroundColor = UIColor(red: 0.67, green: 0.67, blue: 0.67, alpha: 1)
+        tableView.rowHeight = 460
+        tableView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         tableView.separatorStyle = .none
         return tableView
     }()
@@ -59,7 +59,7 @@ final class HomeViewController: UIViewController {
     }()
     private let errorLabel: UILabel = {
         let label = UILabel()
-        label.textColor = UIColor(red: 0.988, green: 0.988, blue: 0.988, alpha: 1)
+        label.textColor = UIColor(red: 252/255, green: 25/255, blue: 63/255, alpha: 1)
         label.numberOfLines = 0
         label.textAlignment = .center
         label.text = "Ops! \n Ocorreu algum erro. \n Clique no botão para tentar novamente."
@@ -68,8 +68,8 @@ final class HomeViewController: UIViewController {
     private let errorButton: UIButton = {
         let button = UIButton()
         button.setTitle("Recarregar", for: .normal)
-        button.setTitleColor(UIColor.white, for: .normal)
-        button.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0)
+        button.setTitleColor(UIColor(red: 252/255, green: 25/255, blue: 63/255, alpha: 1), for: .normal)
+        button.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
         return button
     }()
     private func removeItensFromSuperview(toRemove: EnumRemoveType){
@@ -123,6 +123,7 @@ final class HomeViewController: UIViewController {
             view.trailingAnchor.constraint(equalTo: errorButton.trailingAnchor, constant: 18).isActive = true
         }
     }
+   
     
     @objc private func configureView() {
         removeItensFromSuperview(toRemove: .error)
