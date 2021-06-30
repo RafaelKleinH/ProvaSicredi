@@ -1,9 +1,3 @@
-//
-//  APIMethods.swift
-//  ProvaSicredi
-//
-//  Created by Rafael Hartmann on 28/06/21.
-//
 
 import Foundation
 
@@ -36,21 +30,10 @@ final class APIMethods {
         
         APIService().callAPI(HTTPMethod: .POST ,body: body, urlStringToRequest: url) { (data, error) in
             if error == nil{
-                if let data = data{
-                    do{
-                        let data = try JSONDecoder().decode([Event].self, from: data)
-                        print(data.count)
-                        onComplete( nil)
-                    }
-                    catch{
-                        print("JSON Serialization error")
-                        onComplete(.decodable)
-                    }
-                }
+                onComplete( nil)
             }else{
                 onComplete(.decodable)
             }
         }
     }
-    
 }

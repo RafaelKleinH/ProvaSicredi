@@ -1,9 +1,3 @@
-//
-//  StringExtension.swift
-//  ProvaSicredi
-//
-//  Created by Rafael Hartmann on 29/06/21.
-//
 
 import Foundation
 

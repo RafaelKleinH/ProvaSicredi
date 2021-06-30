@@ -180,24 +180,22 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         
     }
     func configureView(){
-        eventScrollView.contentSize = viewInScroll.frame.size
+       
         eventScrollView.isScrollEnabled = true
         eventTitleLabel.text = viewModel.event.title
         eventDescriptionLabel.text = viewModel.event.description
-        let date = Components().convertEpochDate(epoch: viewModel.event.date)
+        let date = Components().convertEpochDateToString(epoch: viewModel.event.date)
         eventDateLabel.text = "\(date)"
         eventPriceLabel.text = "R$: \(viewModel.event.price)"
-        viewModel.getLocation { (location) in
+        viewModel.getEventLocation() { (location) in
             self.eventLocalLabel.text = "Local: \(location)"
         }
         let url = URL(string: viewModel.event.image)
         if let url = url {
-            DispatchQueue.main.async {
-                if let data = try? Data(contentsOf: url){
-                    
-                    self.eventImageView.image = UIImage(data:data)
-                }else{
-                    self.eventImageView.image = UIImage(named: "imageError")
+        Components().getData(from: url) { data, response, error in
+                guard let data = data, error == nil else { return }
+                DispatchQueue.main.async() { [weak self] in
+                    self?.eventImageView.image = UIImage(data:data) ?? UIImage(named: "imageError")
                 }
             }
         }
@@ -210,7 +208,7 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
     }
     @objc func userDidTapShare() {
         let title = viewModel.event.title
-        let date = Components().convertEpochDate(epoch: viewModel.event.date)
+        let date = Components().convertEpochDateToString(epoch: viewModel.event.date)
         let price = "RS: \(viewModel.event.price)"
         let activityController = UIActivityViewController(activityItems: [title, price, date], applicationActivities: nil)
         

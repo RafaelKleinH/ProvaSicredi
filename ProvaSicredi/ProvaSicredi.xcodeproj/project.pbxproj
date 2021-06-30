@@ -10,6 +10,10 @@
 		22177E8A5F59652B3D64CB65 /* Pods_ProvaSicredi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6825DFC48484E7A4CB6FD3FE /* Pods_ProvaSicredi.framework */; };
 		4C38CD829B51D6265AE878F0 /* Pods_ProvaSicrediTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 551DEA9FDE2DA3A163AA77BD /* Pods_ProvaSicrediTests.framework */; };
 		6EDC086BC30FF92DDD5B31A2 /* Pods_ProvaSicredi_ProvaSicrediUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E18E680405CCC39E842A078 /* Pods_ProvaSicredi_ProvaSicrediUITests.framework */; };
+		9D1D592B268BF75D00C1853C /* StrignUtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D592A268BF75D00C1853C /* StrignUtilsTest.swift */; };
+		9D1D5933268BFEF700C1853C /* ProvaSicrediTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D5932268BFEF700C1853C /* ProvaSicrediTests.swift */; };
+		9D1D593B268BFFCD00C1853C /* EpochDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D593A268BFFCD00C1853C /* EpochDateTest.swift */; };
+		9D5A6DA8268C2E430012E7B3 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A6DA7268C2E430012E7B3 /* Popup.swift */; };
 		9D7CFF2A268B8CEF00A48C9E /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D7CFF29268B8CEF00A48C9E /* Montserrat-SemiBold.ttf */; };
 		9D7CFF2F268B8D0C00A48C9E /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D7CFF2E268B8D0C00A48C9E /* Montserrat-Regular.ttf */; };
 		9D7CFF34268B8D1E00A48C9E /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D7CFF33268B8D1E00A48C9E /* Montserrat-Bold.ttf */; };
@@ -24,7 +28,6 @@
 		9DB7A5AD268A483A006662E7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A5AC268A483A006662E7 /* HomeViewController.swift */; };
 		9DB7A5B2268A483B006662E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DB7A5B1268A483B006662E7 /* Assets.xcassets */; };
 		9DB7A5B5268A483B006662E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DB7A5B3268A483B006662E7 /* LaunchScreen.storyboard */; };
-		9DB7A5C0268A483B006662E7 /* ProvaSicrediTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A5BF268A483B006662E7 /* ProvaSicrediTests.swift */; };
 		9DB7A5CB268A483B006662E7 /* ProvaSicrediUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A5CA268A483B006662E7 /* ProvaSicrediUITests.swift */; };
 		9DB7A5E3268A48F5006662E7 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A5E2268A48F5006662E7 /* HomeCoordinator.swift */; };
 		9DB7A5E9268A4909006662E7 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A5E8268A4909006662E7 /* CoordinatorProtocol.swift */; };
@@ -65,6 +68,10 @@
 		8E18E680405CCC39E842A078 /* Pods_ProvaSicredi_ProvaSicrediUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProvaSicredi_ProvaSicrediUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		902D133BC7635545E19AA424 /* Pods-ProvaSicredi-ProvaSicrediUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProvaSicredi-ProvaSicrediUITests.debug.xcconfig"; path = "Target Support Files/Pods-ProvaSicredi-ProvaSicrediUITests/Pods-ProvaSicredi-ProvaSicrediUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9991B76834D98E635CDFD572 /* Pods-ProvaSicrediTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProvaSicrediTests.release.xcconfig"; path = "Target Support Files/Pods-ProvaSicrediTests/Pods-ProvaSicrediTests.release.xcconfig"; sourceTree = "<group>"; };
+		9D1D592A268BF75D00C1853C /* StrignUtilsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrignUtilsTest.swift; sourceTree = "<group>"; };
+		9D1D5932268BFEF700C1853C /* ProvaSicrediTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvaSicrediTests.swift; sourceTree = "<group>"; };
+		9D1D593A268BFFCD00C1853C /* EpochDateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpochDateTest.swift; sourceTree = "<group>"; };
+		9D5A6DA7268C2E430012E7B3 /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
 		9D7CFF29268B8CEF00A48C9E /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		9D7CFF2E268B8D0C00A48C9E /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		9D7CFF33268B8D1E00A48C9E /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
@@ -82,7 +89,6 @@
 		9DB7A5B4268A483B006662E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9DB7A5B6268A483B006662E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DB7A5BB268A483B006662E7 /* ProvaSicrediTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProvaSicrediTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9DB7A5BF268A483B006662E7 /* ProvaSicrediTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvaSicrediTests.swift; sourceTree = "<group>"; };
 		9DB7A5C1268A483B006662E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DB7A5C6268A483B006662E7 /* ProvaSicrediUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProvaSicrediUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DB7A5CA268A483B006662E7 /* ProvaSicrediUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProvaSicrediUITests.swift; sourceTree = "<group>"; };
@@ -219,7 +225,9 @@
 		9DB7A5BE268A483B006662E7 /* ProvaSicrediTests */ = {
 			isa = PBXGroup;
 			children = (
-				9DB7A5BF268A483B006662E7 /* ProvaSicrediTests.swift */,
+				9D1D5932268BFEF700C1853C /* ProvaSicrediTests.swift */,
+				9D1D592A268BF75D00C1853C /* StrignUtilsTest.swift */,
+				9D1D593A268BFFCD00C1853C /* EpochDateTest.swift */,
 				9DB7A5C1268A483B006662E7 /* Info.plist */,
 			);
 			path = ProvaSicrediTests;
@@ -251,6 +259,7 @@
 				9DB7A5E8268A4909006662E7 /* CoordinatorProtocol.swift */,
 				9DB7A637268AAE24006662E7 /* Components.swift */,
 				9D7CFF69268BB8D100A48C9E /* StringExtension.swift */,
+				9D5A6DA7268C2E430012E7B3 /* Popup.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -507,6 +516,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D5A6DA8268C2E430012E7B3 /* Popup.swift in Sources */,
 				9DB7A600268A51F1006662E7 /* Event.swift in Sources */,
 				9D7CFF6F268BBDC300A48C9E /* PresenceDAO.swift in Sources */,
 				9DB7A615268A61D6006662E7 /* APIMethods.swift in Sources */,
@@ -534,7 +544,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DB7A5C0268A483B006662E7 /* ProvaSicrediTests.swift in Sources */,
+				9D1D5933268BFEF700C1853C /* ProvaSicrediTests.swift in Sources */,
+				9D1D592B268BF75D00C1853C /* StrignUtilsTest.swift in Sources */,
+				9D1D593B268BFFCD00C1853C /* EpochDateTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

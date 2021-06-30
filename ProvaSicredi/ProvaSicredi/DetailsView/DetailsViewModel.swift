@@ -19,7 +19,7 @@ final class DetailsViewModel {
         self.event = event
     }
     
-    func getLocation(dateFormatted: @escaping (String) -> Void) {
+    func getEventLocation(localFormatted: @escaping (String) -> Void) {
         var center : CLLocationCoordinate2D = CLLocationCoordinate2D()
         let lat: Double = event.latitude
         //21.228124
@@ -38,7 +38,7 @@ final class DetailsViewModel {
                 {
                     print("reverse geodcode fail: \(error!.localizedDescription)")
                 }
-                let pm = placemarks! as [CLPlacemark]
+                if let pm = placemarks{
 
                 if pm.count > 0 {
                     let pm = placemarks![0]
@@ -57,11 +57,13 @@ final class DetailsViewModel {
                     }
                     
 
-                    dateFormatted(addressString)
+                    localFormatted(addressString)
                   
               }
-                
+                }else{
+                    localFormatted("Erro ao buscar o local no mapa")
+                }
         })
-        
+           
     }
 }

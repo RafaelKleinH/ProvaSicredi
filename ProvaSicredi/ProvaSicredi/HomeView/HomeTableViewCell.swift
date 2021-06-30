@@ -81,21 +81,19 @@ class HomeTableViewCell: UITableViewCell {
     
     
     func createCell(with event: Event){
+        eventImageView.image = UIImage(named: "imageError")
         eventTitleLabel.text = event.title
-        let date = Components().convertEpochDate(epoch: event.date)
+        let date = Components().convertEpochDateToString(epoch: event.date)
         eventDateLabel.text = "Data: \(date)"
         eventPriceLabel.text = "R$: \(event.price)"
         let url = URL(string: event.image)
         if let url = url {
-            DispatchQueue.main.async {
-                if let data = try? Data(contentsOf: url){
-                    
-                    self.eventImageView.image = UIImage(data:data)
-                }else{
-                    self.eventImageView.image = UIImage(named: "imageError")
+        Components().getData(from: url) { data, response, error in
+                guard let data = data, error == nil else { return }
+                DispatchQueue.main.async() { [weak self] in
+                    self?.eventImageView.image = UIImage(data:data) ?? UIImage(named: "imageError")
                 }
             }
         }
-        
     }
 }

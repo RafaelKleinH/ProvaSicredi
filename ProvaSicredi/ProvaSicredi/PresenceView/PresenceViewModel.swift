@@ -1,9 +1,4 @@
-//
-//  PresenceViewModel.swift
-//  ProvaSicredi
-//
-//  Created by Rafael Hartmann on 29/06/21.
-//
+
 
 import Foundation
 
@@ -17,15 +12,11 @@ final class PresenceViewModel {
         self.event = event
     }
     
-    func postPresence(email:String, name:String){
+    func postPresence(email:String, name:String,completion: @escaping (ErrorType?) -> Void){
         let presence = PresenceDAO(email: email, name: name, eventId: event.id)
         
         APIMethods().PostPresence(onComplete: { (error) in
-            if error == nil{
-                
-            }else{
-                
-            }
+            completion(error)
         }, body: presence)
     }
 }
