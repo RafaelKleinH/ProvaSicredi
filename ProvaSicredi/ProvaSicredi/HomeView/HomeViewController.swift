@@ -68,8 +68,10 @@ final class HomeViewController: UIViewController {
     private let errorButton: UIButton = {
         let button = UIButton()
         button.setTitle("Recarregar", for: .normal)
-        button.setTitleColor(UIColor(red: 252/255, green: 25/255, blue: 63/255, alpha: 1), for: .normal)
-        button.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+        button.layer.shadowOffset = CGSize(width: 0.0, height: 4.0)
+        button.layer.cornerRadius = 8
+        button.titleLabel?.font = UIFont(name: "Montserrat-SemiBold", size: 16)
+        button.backgroundColor = UIColor(red: 252/255, green: 25/255, blue: 63/255, alpha: 1)
         return button
     }()
     private func removeItensFromSuperview(toRemove: EnumRemoveType){
@@ -119,8 +121,8 @@ final class HomeViewController: UIViewController {
             errorButton.translatesAutoresizingMaskIntoConstraints = false
             
             errorButton.topAnchor.constraint(equalTo: errorLabel.bottomAnchor, constant: 12).isActive = true
-            errorButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 18).isActive = true
-            view.trailingAnchor.constraint(equalTo: errorButton.trailingAnchor, constant: 18).isActive = true
+            errorButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 47).isActive = true
+            view.trailingAnchor.constraint(equalTo: errorButton.trailingAnchor, constant: 47).isActive = true
         }
     }
    

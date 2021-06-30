@@ -1,9 +1,4 @@
-//
-//  PresenceDAO.swift
-//  ProvaSicredi
-//
-//  Created by Rafael Hartmann on 29/06/21.
-//a
+
 
 import Foundation
 

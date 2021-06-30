@@ -1,9 +1,4 @@
-//
-//  PresenceViewController.swift
-//  ProvaSicredi
-//
-//  Created by Rafael Hartmann on 29/06/21.
-//
+
 
 import UIKit
 import Foundation
@@ -11,6 +6,7 @@ import Foundation
 final class PresenceViewController: UIViewController {
     
     var viewModel: PresenceViewModel
+    let pop = Popup()
     
     init(viewModel: PresenceViewModel) {
         self.viewModel = viewModel
@@ -28,6 +24,7 @@ final class PresenceViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "arrow"), style: .plain, target: self, action: #selector(popToPrevious))
         setupConstraints()
         submitButton.addTarget(self, action: #selector(validateTextFields), for: .touchDown)
+        pop.btPopupConfirm.addTarget(self, action: #selector(popPopup), for: .touchDown)
     }
     @objc func popToPrevious(){
         viewModel.coordinator.popToPrevius()
@@ -156,11 +153,14 @@ final class PresenceViewController: UIViewController {
     }
     
     @objc func validateTextFields() {
+        submitButton.isUserInteractionEnabled = false
         if nameTextField.text != "" {
             nameErrorLabel.textColor = UIColor(red: 252/255, green: 25/255, blue: 63/255, alpha: 0)
             if emailTextField.text != "" && ((emailTextField.text?.isValidEmail) == true) {
                 guard let emailText = emailTextField.text,let name = nameTextField.text else {return}
-                viewModel.postPresence(email: emailText, name: name)
+                viewModel.postPresence(email: emailText, name: name) { (error) in
+                    self.verifyError(error: error)
+                }
                 emailErrorLabel.textColor = UIColor(red: 252/255, green: 25/255, blue: 63/255, alpha: 0)
             }else{
                 emailErrorLabel.textColor = UIColor(red: 252/255, green: 25/255, blue: 63/255, alpha: 1)
@@ -169,7 +169,25 @@ final class PresenceViewController: UIViewController {
             nameErrorLabel.textColor = UIColor(red: 252/255, green: 25/255, blue: 63/255, alpha: 1)
         }
     }
-    
+    func verifyError(error: ErrorType?){
+        if error == nil {
+            DispatchQueue.main.async {
+                self.submitButton.isUserInteractionEnabled = true
+                self.pop.showPopup(popupType: .APISucces)
+                self.view.addSubview(self.pop)
+            }
+        }else{
+            DispatchQueue.main.async {
+                self.submitButton.isUserInteractionEnabled = true
+                self.pop.showPopup(popupType: .APIError)
+                self.view.addSubview(self.pop)
+            }
+           
+        }
+    }
+    @objc func popPopup(){
+        pop.removeFromSuperview()
+    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
