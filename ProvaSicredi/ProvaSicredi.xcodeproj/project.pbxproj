@@ -13,6 +13,7 @@
 		9D1D592B268BF75D00C1853C /* StrignUtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D592A268BF75D00C1853C /* StrignUtilsTest.swift */; };
 		9D1D5933268BFEF700C1853C /* ProvaSicrediTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D5932268BFEF700C1853C /* ProvaSicrediTests.swift */; };
 		9D1D593B268BFFCD00C1853C /* EpochDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D593A268BFFCD00C1853C /* EpochDateTest.swift */; };
+		9D4619A2268E36CA00C989A4 /* ColorSets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4619A1268E36CA00C989A4 /* ColorSets.swift */; };
 		9D5A6DA8268C2E430012E7B3 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A6DA7268C2E430012E7B3 /* Popup.swift */; };
 		9D7CFF2A268B8CEF00A48C9E /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D7CFF29268B8CEF00A48C9E /* Montserrat-SemiBold.ttf */; };
 		9D7CFF2F268B8D0C00A48C9E /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D7CFF2E268B8D0C00A48C9E /* Montserrat-Regular.ttf */; };
@@ -71,6 +72,7 @@
 		9D1D592A268BF75D00C1853C /* StrignUtilsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrignUtilsTest.swift; sourceTree = "<group>"; };
 		9D1D5932268BFEF700C1853C /* ProvaSicrediTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvaSicrediTests.swift; sourceTree = "<group>"; };
 		9D1D593A268BFFCD00C1853C /* EpochDateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpochDateTest.swift; sourceTree = "<group>"; };
+		9D4619A1268E36CA00C989A4 /* ColorSets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSets.swift; sourceTree = "<group>"; };
 		9D5A6DA7268C2E430012E7B3 /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
 		9D7CFF29268B8CEF00A48C9E /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		9D7CFF2E268B8D0C00A48C9E /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				9DB7A637268AAE24006662E7 /* Components.swift */,
 				9D7CFF69268BB8D100A48C9E /* StringExtension.swift */,
 				9D5A6DA7268C2E430012E7B3 /* Popup.swift */,
+				9D4619A1268E36CA00C989A4 /* ColorSets.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				9DB7A5A1268A483A006662E7 /* Sources */,
 				9DB7A5A2268A483A006662E7 /* Frameworks */,
 				9DB7A5A3268A483A006662E7 /* Resources */,
+				6A35C2129E9FCC900977ADAC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -322,7 +326,6 @@
 				9DB7A5B7268A483B006662E7 /* Sources */,
 				9DB7A5B8268A483B006662E7 /* Frameworks */,
 				9DB7A5B9268A483B006662E7 /* Resources */,
-				DF2053D2540792701580F7C5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -342,6 +345,7 @@
 				9DB7A5C2268A483B006662E7 /* Sources */,
 				9DB7A5C3268A483B006662E7 /* Frameworks */,
 				9DB7A5C4268A483B006662E7 /* Resources */,
+				C5329CA8E7F585BC3ED1047B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -470,6 +474,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6A35C2129E9FCC900977ADAC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ProvaSicredi/Pods-ProvaSicredi-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ProvaSicredi/Pods-ProvaSicredi-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ProvaSicredi/Pods-ProvaSicredi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A266A7BB11D63078A84D9B43 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -492,21 +513,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DF2053D2540792701580F7C5 /* [CP] Embed Pods Frameworks */ = {
+		C5329CA8E7F585BC3ED1047B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ProvaSicrediTests/Pods-ProvaSicrediTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ProvaSicredi-ProvaSicrediUITests/Pods-ProvaSicredi-ProvaSicrediUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ProvaSicrediTests/Pods-ProvaSicrediTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ProvaSicredi-ProvaSicrediUITests/Pods-ProvaSicredi-ProvaSicrediUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ProvaSicrediTests/Pods-ProvaSicrediTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ProvaSicredi-ProvaSicrediUITests/Pods-ProvaSicredi-ProvaSicrediUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -532,6 +553,7 @@
 				9D7CFF47268BA06C00A48C9E /* PresenceCoordinator.swift in Sources */,
 				9DB7A5E9268A4909006662E7 /* CoordinatorProtocol.swift in Sources */,
 				9D7CFF3A268BA05200A48C9E /* PresenceViewController.swift in Sources */,
+				9D4619A2268E36CA00C989A4 /* ColorSets.swift in Sources */,
 				9DB7A62B268A90FB006662E7 /* DetailsViewModel.swift in Sources */,
 				9DB7A5A9268A483A006662E7 /* AppDelegate.swift in Sources */,
 				9D7CFF6A268BB8D100A48C9E /* StringExtension.swift in Sources */,

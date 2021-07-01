@@ -21,11 +21,6 @@ final class PresenceCoordinator: Coordinator {
     }
     
     func popToPrevius() {
-        
         navigationController.popViewController(animated: true)
-        
     }
-    
-    
-    
 }

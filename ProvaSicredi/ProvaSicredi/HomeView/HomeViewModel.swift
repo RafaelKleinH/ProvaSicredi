@@ -15,8 +15,7 @@ final class HomeViewModel {
     init(coordinator: HomeCoordinator) {
         homeCoordinator = coordinator
     }
-    
-    
+
     func getEvents(successIndicator: @escaping (Bool) -> Void){
         APIMethods().getEvents { (events, error) in
             if error == nil{

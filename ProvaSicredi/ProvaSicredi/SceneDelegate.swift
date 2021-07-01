@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             NSAttributedString.Key.foregroundColor: UIColor.white
         ]
         UINavigationBar.appearance().titleTextAttributes = navbarTitleAtt
-        UINavigationBar.appearance().barTintColor = UIColor(red: 252/255, green: 25/255, blue: 63/255, alpha: 1)
+        UINavigationBar.appearance().barTintColor = CustomColors.SecondColor
         
         window = UIWindow(frame: windowScence.coordinateSpace.bounds)
         window?.windowScene = windowScence
