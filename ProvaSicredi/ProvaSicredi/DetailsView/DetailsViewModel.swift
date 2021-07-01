@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreLocation
+import UIKit
 
 final class DetailsViewModel {
     
@@ -65,5 +66,16 @@ final class DetailsViewModel {
                 }
         })
            
+    }
+    func shareEvent(with event: Event, image: UIImage?,onComplete: @escaping (UIActivityViewController) -> Void) {
+        let title = "\(event.title)"
+        let date = "Data: \(Components().convertEpochDateToString(epoch: event.date))"
+        let price = "RS: \(event.price)"
+        var activityController = UIActivityViewController(activityItems: [title, price, date], applicationActivities: nil)
+        if let image = image {
+            activityController = UIActivityViewController(activityItems: [title, price, date, image], applicationActivities: nil)
+        }
+        onComplete(activityController)
+        
     }
 }

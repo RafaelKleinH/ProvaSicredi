@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapKit
 
 final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate, UIScrollViewDelegate {
     
@@ -96,6 +97,13 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         Label.font = UIFont(name: "Montserrat-SemiBold", size: 14)
         return Label
     }()
+    private let mapView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+        return view
+    }()
+    private let eventMap = MKMapView()
+    
     private let presenceButton: UIButton = {
         var button = UIButton()
         button.setTitle("Inscreva-se", for: .normal)
@@ -130,9 +138,9 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         
         viewInScroll.addSubview(eventImageView)
         eventImageView.translatesAutoresizingMaskIntoConstraints = false
-        eventImageView.topAnchor.constraint(equalTo: viewInScroll.topAnchor,constant: 10).isActive = true
-        eventImageView.leadingAnchor.constraint(equalTo: viewInScroll.leadingAnchor, constant: 10).isActive = true
-        viewInScroll.trailingAnchor.constraint(equalTo: eventImageView.trailingAnchor, constant: 10).isActive = true
+        eventImageView.topAnchor.constraint(equalTo: viewInScroll.topAnchor,constant: 0).isActive = true
+        eventImageView.leadingAnchor.constraint(equalTo: viewInScroll.leadingAnchor, constant: 0).isActive = true
+        viewInScroll.trailingAnchor.constraint(equalTo: eventImageView.trailingAnchor, constant: 0).isActive = true
         eventImageView.heightAnchor.constraint(equalToConstant: view.bounds.width - 20).isActive = true
         
         
@@ -169,13 +177,30 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         eventLocalLabel.leadingAnchor.constraint(equalTo: eventScrollView.leadingAnchor, constant: 12).isActive = true
         view.trailingAnchor.constraint(equalTo: eventLocalLabel.trailingAnchor, constant: 12).isActive = true
         
+        viewInScroll.addSubview(mapView)
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        mapView.topAnchor.constraint(equalTo: eventLocalLabel.bottomAnchor, constant: 12).isActive = true
+        mapView.leadingAnchor.constraint(equalTo: eventScrollView.leadingAnchor, constant: 0).isActive = true
+        view.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: 0).isActive = true
+        mapView.heightAnchor.constraint(equalToConstant: view.frame.size.width).isActive = true
         
-        
+        let leftMargin:CGFloat = 0
+        let topMargin:CGFloat = 0
+        let mapWidth:CGFloat = (view.frame.size.width)
+        let mapHeight:CGFloat = (view.frame.size.width)
+      
+        eventMap.frame = CGRect(x: leftMargin, y: topMargin, width: mapWidth, height: mapHeight)
+      
+        eventMap.mapType = MKMapType.standard
+        eventMap.isZoomEnabled = true
+        eventMap.isScrollEnabled = true
+        mapView.addSubview(eventMap)
+      
         viewInScroll.addSubview(presenceButton)
         presenceButton.translatesAutoresizingMaskIntoConstraints = false
         presenceButton.leadingAnchor.constraint(equalTo: viewInScroll.leadingAnchor, constant: 47).isActive = true
         view.trailingAnchor.constraint(equalTo: presenceButton.trailingAnchor, constant: 47).isActive = true
-        presenceButton.topAnchor.constraint(equalTo: eventLocalLabel.bottomAnchor,constant: 24).isActive = true
+        presenceButton.topAnchor.constraint(equalTo: eventMap.bottomAnchor,constant: 24).isActive = true
         presenceButton.bottomAnchor.constraint(lessThanOrEqualTo: viewInScroll.bottomAnchor,constant: -24).isActive = true
         
     }
@@ -190,6 +215,12 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         viewModel.getEventLocation() { (location) in
             self.eventLocalLabel.text = "Local: \(location)"
         }
+        let event = MKPointAnnotation()
+        event.title = "Evento"
+        event.coordinate = CLLocationCoordinate2D(latitude: viewModel.event.latitude, longitude: viewModel.event.longitude)
+        eventMap.addAnnotation(event)
+        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: viewModel.event.latitude, longitude: viewModel.event.longitude), span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
+        eventMap.setRegion(region, animated: true)
         let url = URL(string: viewModel.event.image)
         if let url = url {
         Components().getData(from: url) { data, response, error in
@@ -207,20 +238,11 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         viewModel.coordinator.goToPresenceView()
     }
     @objc func userDidTapShare() {
-        let title = viewModel.event.title
-        let date = Components().convertEpochDateToString(epoch: viewModel.event.date)
-        let price = "RS: \(viewModel.event.price)"
-        let activityController = UIActivityViewController(activityItems: [title, price, date], applicationActivities: nil)
-        
-        activityController.completionWithItemsHandler = {( nil, completed, _, error ) in
-            
-            if completed {
-                print("Deu certin")
-            }else{
-                print("canceled")
+        viewModel.shareEvent(with: viewModel.event, image: eventImageView.image) { (ActivityViewController) in
+            self.present(ActivityViewController, animated: true) {
+                print("A")
             }
         }
-        present(activityController, animated: true){
-        }
+        
     }
 }

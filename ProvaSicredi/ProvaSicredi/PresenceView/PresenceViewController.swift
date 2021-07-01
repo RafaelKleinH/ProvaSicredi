@@ -163,9 +163,11 @@ final class PresenceViewController: UIViewController {
                 }
                 emailErrorLabel.textColor = UIColor(red: 252/255, green: 25/255, blue: 63/255, alpha: 0)
             }else{
+                submitButton.isUserInteractionEnabled = true
                 emailErrorLabel.textColor = UIColor(red: 252/255, green: 25/255, blue: 63/255, alpha: 1)
             }
         }else {
+            submitButton.isUserInteractionEnabled = true
             nameErrorLabel.textColor = UIColor(red: 252/255, green: 25/255, blue: 63/255, alpha: 1)
         }
     }
