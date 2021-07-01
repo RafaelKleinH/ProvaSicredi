@@ -17,11 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
         let font:UIFont = UIFont(name: "Montserrat-SemiBold", size: 18.0)!
         let navbarTitleAtt = [
-            NSAttributedString.Key.font:font,
-            NSAttributedString.Key.foregroundColor: UIColor.white
+            NSAttributedString.Key.font:font
         ]
         UINavigationBar.appearance().titleTextAttributes = navbarTitleAtt
-        UINavigationBar.appearance().barTintColor = UIColor(red: 252/255, green: 25/255, blue: 63/255, alpha: 1)
+        UINavigationBar.appearance().barTintColor = CustomColors.SecondColor
         
         self.window = UIWindow.init()
         self.window?.bounds = UIScreen.main.bounds

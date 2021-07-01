@@ -5,7 +5,7 @@ final class APIMethods {
     
     func getEvents(onComplete: @escaping ([Event]?, ErrorType?) -> Void){
         let url = "http://5f5a8f24d44d640016169133.mockapi.io/api/events"
-       
+        
         APIService().callAPI(body: nil, urlStringToRequest: url) { (data, error) in
             if error == nil{
                 if let data = data{
@@ -22,8 +22,8 @@ final class APIMethods {
                 onComplete(nil,error)
             }
         }
-        
     }
+    
     func PostPresence(onComplete: @escaping (ErrorType?) -> Void ,body: PresenceDAO) {
         let url = "http://5f5a8f24d44d640016169133.mockapi.io/api/checkin"
         guard let body = try? JSONEncoder().encode(body) else {return}

@@ -25,27 +25,29 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         super.viewDidLoad()
         setupConstraints()
         configureView()
-        
         eventScrollView.delegate = self
-        navigationController?.navigationBar.tintColor = .white
         navigationItem.title = "Descrição do evento"
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "arrow"), style: .plain, target: self, action: #selector(popToPrevious))
         let shareBar: UIBarButtonItem = UIBarButtonItem.init(barButtonSystemItem:.action, target: self, action: #selector(userDidTapShare))
         presenceButton.addTarget(self, action: #selector(goToPresenceView), for: .touchDown)
         self.navigationItem.rightBarButtonItem = shareBar
         navigationController?.interactivePopGestureRecognizer?.delegate = self
-        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
-        
+        let textAttributes = [NSAttributedString.Key.foregroundColor: CustomColors.BackGroundColor]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.tintColor = CustomColors.BackGroundColor
+    }
+    
     private let eventScrollView: UIScrollView = {
         let scrollView =  UIScrollView()
-        scrollView.backgroundColor = .white
+        scrollView.backgroundColor = CustomColors.BackGroundColor
         return scrollView
     }()
     private let viewInScroll: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = CustomColors.BackGroundColor
         return view
     }()
     private let eventImageView: UIImageView = {
@@ -57,7 +59,7 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         var Label = UILabel()
         Label.numberOfLines = 0
         Label.lineBreakMode = .byWordWrapping
-        Label.textColor = UIColor(red: 252/255, green: 25/255, blue: 63/255, alpha: 1)
+        Label.textColor = CustomColors.SecondColor
         Label.font = UIFont(name: "Montserrat-Bold", size: 18)
         return Label
     }()
@@ -66,7 +68,7 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         Label.textColor = .white
         Label.numberOfLines = 0
         Label.lineBreakMode = .byWordWrapping
-        Label.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        Label.textColor = CustomColors.ThirdColor
         Label.font = UIFont(name: "Montserrat-Light", size: 14)
         return Label
     }()
@@ -75,7 +77,7 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         Label.textColor = .white
         Label.numberOfLines = 0
         Label.lineBreakMode = .byWordWrapping
-        Label.textColor = UIColor(red: 252/255, green: 25/255, blue: 63/255, alpha: 1)
+        Label.textColor = CustomColors.SecondColor
         Label.font = UIFont(name: "Montserrat-SemiBold", size: 14)
         return Label
     }()
@@ -84,7 +86,7 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         Label.textColor = .white
         Label.numberOfLines = 0
         Label.lineBreakMode = .byWordWrapping
-        Label.textColor = UIColor(red: 252/255, green: 25/255, blue: 63/255, alpha: 1)
+        Label.textColor = CustomColors.SecondColor
         Label.font = UIFont(name: "Montserrat-SemiBold", size: 14)
         return Label
     }()
@@ -93,7 +95,7 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         Label.textColor = .white
         Label.numberOfLines = 0
         Label.lineBreakMode = .byWordWrapping
-        Label.textColor = UIColor(red: 252/255, green: 25/255, blue: 63/255, alpha: 1)
+        Label.textColor = CustomColors.SecondColor
         Label.font = UIFont(name: "Montserrat-SemiBold", size: 14)
         return Label
     }()
@@ -110,14 +112,12 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         button.layer.shadowOffset = CGSize(width: 0.0, height: 4.0)
         button.layer.cornerRadius = 8
         button.titleLabel?.font = UIFont(name: "Montserrat-SemiBold", size: 16)
-        button.backgroundColor = UIColor(red: 252/255, green: 25/255, blue: 63/255, alpha: 1)
+        button.backgroundColor = CustomColors.SecondColor
         return button
     }()
     
     
     func setupConstraints(){
-        
-    
         
         view.addSubview(eventScrollView)
         eventScrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -171,11 +171,13 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         eventPriceLabel.leadingAnchor.constraint(equalTo: eventScrollView.leadingAnchor, constant: 12).isActive = true
         view.trailingAnchor.constraint(equalTo: eventPriceLabel.trailingAnchor, constant: 12).isActive = true
         
+        
         viewInScroll.addSubview(eventLocalLabel)
         eventLocalLabel.translatesAutoresizingMaskIntoConstraints = false
         eventLocalLabel.topAnchor.constraint(equalTo:  eventPriceLabel.bottomAnchor, constant: 10).isActive = true
         eventLocalLabel.leadingAnchor.constraint(equalTo: eventScrollView.leadingAnchor, constant: 12).isActive = true
         view.trailingAnchor.constraint(equalTo: eventLocalLabel.trailingAnchor, constant: 12).isActive = true
+        
         
         viewInScroll.addSubview(mapView)
         mapView.translatesAutoresizingMaskIntoConstraints = false
@@ -183,6 +185,7 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         mapView.leadingAnchor.constraint(equalTo: eventScrollView.leadingAnchor, constant: 0).isActive = true
         view.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: 0).isActive = true
         mapView.heightAnchor.constraint(equalToConstant: view.frame.size.width).isActive = true
+        
         
         let leftMargin:CGFloat = 0
         let topMargin:CGFloat = 0
@@ -231,6 +234,7 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
             }
         }
     }
+    
     @objc func popToPrevious(){
         viewModel.coordinator.popToPrevius()
     }
@@ -240,7 +244,7 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
     @objc func userDidTapShare() {
         viewModel.shareEvent(with: viewModel.event, image: eventImageView.image) { (ActivityViewController) in
             self.present(ActivityViewController, animated: true) {
-                print("A")
+                
             }
         }
         

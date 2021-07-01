@@ -11,9 +11,7 @@ class HomeTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(false, animated: false)
     }
@@ -22,7 +20,7 @@ class HomeTableViewCell: UITableViewCell {
         var label = UILabel()
         label.numberOfLines = 0
         label.font = UIFont(name: "Montserrat-SemiBold", size: 18)
-        label.textColor = UIColor(red: 252/255, green: 25/255, blue: 63/255, alpha: 1)
+        label.textColor = CustomColors.SecondColor
         return label
     }()
     private let eventImageView: UIImageView = {
@@ -34,45 +32,44 @@ class HomeTableViewCell: UITableViewCell {
         var label = UILabel()
         label.numberOfLines = 0
         label.font = UIFont(name: "Montserrat-Regular", size: 18)
-        label.textColor = UIColor(red: 120/255, green: 120/255, blue: 120/255, alpha: 1)
+        label.textColor = CustomColors.ThirdColor
         return label
     }()
     private let eventPriceLabel : UILabel = {
         var label = UILabel()
         label.numberOfLines = 0
         label.font = UIFont(name: "Montserrat-Regular", size: 18)
-        label.textColor = UIColor(red: 120/255, green: 120/255, blue: 120/255, alpha: 1)
+        label.textColor = CustomColors.ThirdColor
         return label
     }()
     func setupConstraints(){
-        backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        backgroundColor = CustomColors.BackGroundColor
         
         addSubview(eventImageView)
         eventImageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        eventImageView.topAnchor.constraint(equalTo: self.topAnchor,constant: 10).isActive = true
+        eventImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         eventImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        eventImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
-        self.trailingAnchor.constraint(equalTo: eventImageView.trailingAnchor, constant: 10).isActive = true
+        eventImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        self.trailingAnchor.constraint(equalTo: eventImageView.trailingAnchor).isActive = true
         eventImageView.heightAnchor.constraint(equalToConstant: self.bounds.width - 20).isActive = true
+        
         
         addSubview(eventTitleLabel)
         eventTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        
         eventTitleLabel.topAnchor.constraint(equalTo: eventImageView.bottomAnchor, constant: 8).isActive = true
         eventTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8).isActive = true
         self.trailingAnchor.constraint(equalTo: eventTitleLabel.trailingAnchor, constant: 8).isActive = true
         
+        
         addSubview(eventDateLabel)
         eventDateLabel.translatesAutoresizingMaskIntoConstraints = false
-        
         eventDateLabel.topAnchor.constraint(equalTo: eventTitleLabel.bottomAnchor, constant: 8).isActive = true
         eventDateLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8).isActive = true
         self.trailingAnchor.constraint(equalTo: eventDateLabel.trailingAnchor, constant: 8).isActive = true
         
+        
         addSubview(eventPriceLabel)
         eventPriceLabel.translatesAutoresizingMaskIntoConstraints = false
-        
         eventPriceLabel.topAnchor.constraint(equalTo: eventDateLabel.bottomAnchor, constant: 8).isActive = true
         eventPriceLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8).isActive = true
         self.trailingAnchor.constraint(equalTo: eventPriceLabel.trailingAnchor, constant: 8).isActive = true

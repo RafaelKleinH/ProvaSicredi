@@ -14,14 +14,14 @@ enum ErrorType {
 final class APIService: Decodable {
     
     func callAPI(HTTPMethod: HTTPMethod = .GET, body: Data?, urlStringToRequest: String ,completion: @escaping (Data?, ErrorType?) -> Void) {
-    
+        
         guard let url = URL(string: urlStringToRequest) else {
             completion(nil, .url)
             return
             
         }
         var request = URLRequest(url:url)
-         
+        
         switch HTTPMethod {
         case .GET:
             let httpMethod: String = "GET"
@@ -44,24 +44,21 @@ final class APIService: Decodable {
                 }
                 if response.statusCode == 200 {
                     if let data = data{
-                        
                         completion(data, nil)
-                        
-                       
                     }
                 }
                 else{
                     completion(nil, .statusCode)
                     print(response.statusCode)
                 }
-        }
-        else{
-            completion(nil, .statusCode)
-        }
-        
+            }
+            else{
+                completion(nil, .statusCode)
+            }
             
-    
+            
+            
         }.resume()
-    
-}
+        
+    }
 }
