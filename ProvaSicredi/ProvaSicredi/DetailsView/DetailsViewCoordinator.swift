@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 final class DetailsViewCoordinator: Coordinator {
-
+    
     var navigationController: UINavigationController
     var event: Event
     
@@ -29,6 +29,6 @@ final class DetailsViewCoordinator: Coordinator {
         navigationController.popViewController(animated: true)
     }
     func goToPresenceView(){
-            PresenceCoordinator(navigationController: navigationController, event: event).start()
+        PresenceCoordinator(navigationController: navigationController, event: event).start()
     }
 }

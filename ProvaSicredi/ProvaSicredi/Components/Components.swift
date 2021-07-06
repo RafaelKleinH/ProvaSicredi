@@ -16,12 +16,13 @@ class Components {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
     
-    func styleTextFields(textfield: MDCFilledTextField){
+    func styleTextFields(textfield: MDCFilledTextField, placeHolderText: String){
         textfield.heightAnchor.constraint(greaterThanOrEqualToConstant: 56).isActive = true
         textfield.widthAnchor.constraint(greaterThanOrEqualToConstant: 300).isActive = true
         textfield.adjustsFontSizeToFitWidth = true
         textfield.preferredContainerHeight = 56
         textfield.font = UIFont(name:"Montserrat-Regular", size: 16)
+        textfield.placeholder = placeHolderText
         textfield.label.text = textfield.placeholder
         textfield.setTextColor(CustomColors.SecondColor!, for: .normal)
         textfield.setTextColor(CustomColors.SecondColor!, for: .editing)
