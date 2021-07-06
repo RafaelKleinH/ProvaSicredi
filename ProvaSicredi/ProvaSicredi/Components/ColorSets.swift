@@ -1,10 +1,3 @@
-//
-//  ColorSets.swift
-//  ProvaSicredi
-//
-//  Created by Rafael Hartmann on 01/07/21.
-//
-
 import Foundation
 import UIKit
 

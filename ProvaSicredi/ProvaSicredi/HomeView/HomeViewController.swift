@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  ProvaSicredi
-//
-//  Created by Rafael Hartmann on 28/06/21.
-//
-
 import UIKit
 
 enum SetupHomeConstraintsEnum {
@@ -33,14 +26,14 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = CustomColors.BackGroundColor
-        self.navigationItem.title = viewModel.navigationTitle
+        self.navigationItem.title = HomeViewStrings().navigationTitle
         let textAttributes = [NSAttributedString.Key.foregroundColor: CustomColors.BackGroundColor]
         navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
         configureView()
         setTexts()
         eventsTableView.delegate = self
         eventsTableView.dataSource = self
-        eventsTableView.register(HomeTableViewCell.self, forCellReuseIdentifier: viewModel.eventName)
+        eventsTableView.register(HomeTableViewCell.self, forCellReuseIdentifier: HomeViewStrings().eventCellName)
         errorButton.addTarget(self, action: #selector(configureView), for: .touchDown)
     }
     
@@ -129,8 +122,8 @@ final class HomeViewController: UIViewController {
     }
     
     private func setTexts(){
-        errorLabel.text = viewModel.errorLabelText
-        errorButton.setTitle(viewModel.errorButtonTitle, for: .normal)
+        errorLabel.text = HomeViewStrings().errorLabelText
+        errorButton.setTitle(HomeViewStrings().errorButtonTitle, for: .normal)
     }
     
     @objc private func configureView() {
@@ -158,7 +151,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
         return viewModel.events.count > 0 ? viewModel.events.count : 0
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: viewModel.eventName, for: indexPath) as! HomeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: HomeViewStrings().eventCellName, for: indexPath) as! HomeTableViewCell
         cell.setupConstraints()
         let indexData = viewModel.events[indexPath.row]
         cell.createCell(with: indexData)

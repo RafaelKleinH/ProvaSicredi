@@ -1,4 +1,3 @@
-
 import Foundation
 
 enum HTTPMethod {
@@ -18,7 +17,6 @@ final class APIService: Decodable {
         guard let url = URL(string: urlStringToRequest) else {
             completion(nil, .url)
             return
-            
         }
         var request = URLRequest(url:url)
         
@@ -34,13 +32,11 @@ final class APIService: Decodable {
             request.httpBody = body
         }
         
-        
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if(error == nil){
                 guard let response = response as? HTTPURLResponse, let _ = data else{
                     completion(nil, .statusCode)
                     return
-                    
                 }
                 if response.statusCode == 200 {
                     if let data = data{

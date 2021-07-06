@@ -1,10 +1,3 @@
-//
-//  Popup.swift
-//  ProvaSicredi
-//
-//  Created by Rafael Hartmann on 30/06/21.
-//
-
 import UIKit
 import Foundation
 

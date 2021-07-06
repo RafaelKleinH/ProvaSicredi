@@ -1,10 +1,3 @@
-//
-//  DetailsViewmodel.swift
-//  ProvaSicredi
-//
-//  Created by Rafael Hartmann on 28/06/21.
-//
-
 import Foundation
 import CoreLocation
 import UIKit
@@ -14,13 +7,6 @@ final class DetailsViewModel {
     
     var coordinator: DetailsViewCoordinator
     var event: Event
-    
-    let navigationTitle = "Descrição do evento"
-    let leftBarButtonImage = "arrow"
-    let presenceButtonText = "Inscreva-se"
-    let mapPinText = "Evento"
-    let priceLabelText = "R$:"
-    let localLabelText = "Local:"
     
     required init(coordinator:DetailsViewCoordinator, event: Event) {
         self.coordinator = coordinator
@@ -70,7 +56,7 @@ final class DetailsViewModel {
     
     func eventPinLocation(eventMap: MKMapView){
         let event = MKPointAnnotation()
-        event.title = mapPinText
+        event.title = DetailsViewStrings().mapPinText
         event.coordinate = CLLocationCoordinate2D(latitude: self.event.latitude, longitude: self.event.longitude)
         
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: self.event.latitude, longitude: self.event.longitude), span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))

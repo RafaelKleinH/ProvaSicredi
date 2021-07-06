@@ -1,5 +1,3 @@
-
-
 import Foundation
 
 class People: Codable {

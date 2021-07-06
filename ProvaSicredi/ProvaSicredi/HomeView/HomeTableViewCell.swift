@@ -1,10 +1,3 @@
-//
-//  HomeTableViewCell.swift
-//  ProvaSicredi
-//
-//  Created by Rafael Hartmann on 28/06/21.
-//
-
 import UIKit
 
 class HomeTableViewCell: UITableViewCell {
@@ -85,8 +78,8 @@ class HomeTableViewCell: UITableViewCell {
         eventImageView.image = UIImage(named: "imageError")
         eventTitleLabel.text = event.title
         let date = Components().convertEpochDateToString(epoch: event.date)
-        eventDateLabel.text = "Data: \(date)"
-        eventPriceLabel.text = "R$: \(event.price)"
+        eventDateLabel.text = "\(HomeViewStrings().cellDateLabel) \(date)"
+        eventPriceLabel.text = "\(HomeViewStrings().cellPriceLabel) \(event.price)"
         let url = URL(string: event.image)
         if let url = url {
             Components().getData(from: url) { data, response, error in

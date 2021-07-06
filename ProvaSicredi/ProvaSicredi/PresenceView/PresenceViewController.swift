@@ -1,5 +1,3 @@
-
-
 import UIKit
 import Foundation
 import MaterialComponents
@@ -21,8 +19,8 @@ final class PresenceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = CustomColors.BackGroundColor
-        navigationItem.title = viewModel.navigationItemText
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: viewModel.leftBarButtonImage), style: .plain, target: self, action: #selector(popToPrevious))
+        navigationItem.title = PresenceViewStrings().navigationItemText
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: PresenceViewStrings().leftBarButtonImage), style: .plain, target: self, action: #selector(popToPrevious))
         setupConstraints()
         setTexts()
         submitButton.addTarget(self, action: #selector(validateTextFields), for: .touchDown)
@@ -62,9 +60,9 @@ final class PresenceViewController: UIViewController {
     }()
     
     func setTexts() {
-        submitButton.setTitle(viewModel.submitButtonTitle, for: .normal)
-        Components().styleTextFields(textfield: emailTextField, placeHolderText: viewModel.emailTextFieldPlaceHolder)
-        Components().styleTextFields(textfield: nameTextField, placeHolderText: viewModel.nameTextFieldPlaceHolder)
+        submitButton.setTitle(PresenceViewStrings().submitButtonTitle, for: .normal)
+        Components().styleTextFields(textfield: emailTextField, placeHolderText: PresenceViewStrings().emailTextFieldPlaceHolder)
+        Components().styleTextFields(textfield: nameTextField, placeHolderText: PresenceViewStrings().nameTextFieldPlaceHolder)
     }
     
     private func setupConstraints(){
@@ -108,12 +106,12 @@ final class PresenceViewController: UIViewController {
                 }
             }else{
                 submitButton.isUserInteractionEnabled = true
-                emailTextField.leadingAssistiveLabel.text = viewModel.emailErrorText
+                emailTextField.leadingAssistiveLabel.text = PresenceViewStrings().emailErrorText
                 
             }
         }else {
             submitButton.isUserInteractionEnabled = true
-            nameTextField.leadingAssistiveLabel.text = viewModel.nameErrorText
+            nameTextField.leadingAssistiveLabel.text = PresenceViewStrings().nameErrorText
             
         }
     }

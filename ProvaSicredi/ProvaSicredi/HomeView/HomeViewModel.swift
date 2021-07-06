@@ -1,21 +1,9 @@
-//
-//  HomeViewModel.swift
-//  ProvaSicredi
-//
-//  Created by Rafael Hartmann on 28/06/21.
-//
-
 import Foundation
 
 final class HomeViewModel {
     
     var homeCoordinator: HomeCoordinator
     var events: [Event] = []
-    
-    let navigationTitle = "Eventos"
-    let errorLabelText = "Ops! \n Ocorreu algum erro. \n Clique no botão para tentar novamente."
-    let errorButtonTitle = "Recarregar"
-    let eventName = "eventCell"
     
     init(coordinator: HomeCoordinator) {
         homeCoordinator = coordinator
@@ -31,11 +19,9 @@ final class HomeViewModel {
                 else{
                     successIndicator(false)
                 }
-                
             }else{
                 successIndicator(false)
             }
         }
-        
     }
 }

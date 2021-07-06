@@ -1,10 +1,3 @@
-//
-//  DetailsViewController.swift
-//  ProvaSicredi
-//
-//  Created by Rafael Hartmann on 28/06/21.
-//
-
 import UIKit
 import MapKit
 
@@ -26,8 +19,8 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         setupConstraints()
         configureView()
         eventScrollView.delegate = self
-        navigationItem.title = viewModel.navigationTitle
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: viewModel.leftBarButtonImage), style: .plain, target: self, action: #selector(popToPrevious))
+        navigationItem.title = DetailsViewStrings().navigationTitle
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: DetailsViewStrings().leftBarButtonImage), style: .plain, target: self, action: #selector(popToPrevious))
         let shareBar: UIBarButtonItem = UIBarButtonItem.init(barButtonSystemItem:.action, target: self, action: #selector(userDidTapShare))
         presenceButton.addTarget(self, action: #selector(goToPresenceView), for: .touchDown)
         self.navigationItem.rightBarButtonItem = shareBar
@@ -211,16 +204,16 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
     func configureView(){
         eventLocalLabel.text = "Buscando..."
         eventImageView.image = UIImage(named: "imageError")
-        presenceButton.setTitle(viewModel.presenceButtonText, for: .normal)
+        presenceButton.setTitle(DetailsViewStrings().presenceButtonText, for: .normal)
         eventScrollView.isScrollEnabled = true
         eventTitleLabel.text = viewModel.event.title
         eventDescriptionLabel.text = viewModel.event.description
         let date = Components().convertEpochDateToString(epoch: viewModel.event.date)
         eventDateLabel.text = date
-        eventPriceLabel.text = "\(viewModel.priceLabelText) \(viewModel.event.price)"
+        eventPriceLabel.text = "\(DetailsViewStrings().priceLabelText) \(viewModel.event.price)"
         viewModel.eventPinLocation(eventMap: eventMap)
         viewModel.getEventLocation() { [weak self] (location) in
-            guard let localLabelText = self?.viewModel.localLabelText else {return}
+            let localLabelText = DetailsViewStrings().localLabelText 
             self?.eventLocalLabel.text = "\(localLabelText) \(location)"
         }
         viewModel.decodeImageFromAPI { [weak self] (image) in
