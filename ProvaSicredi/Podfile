@@ -11,6 +11,9 @@ target 'ProvaSicredi' do
   	# TextField/Area pods
 		pod 'MaterialComponents/TextControls+FilledTextFields'
 
+	# CleanCode Assistant
+		pod 'SwiftLint'
+
 
   target 'ProvaSicrediTests' do
     inherit! :search_paths

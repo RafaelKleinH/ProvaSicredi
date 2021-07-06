@@ -26,8 +26,8 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         setupConstraints()
         configureView()
         eventScrollView.delegate = self
-        navigationItem.title = "Descrição do evento"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "arrow"), style: .plain, target: self, action: #selector(popToPrevious))
+        navigationItem.title = viewModel.navigationTitle
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: viewModel.leftBarButtonImage), style: .plain, target: self, action: #selector(popToPrevious))
         let shareBar: UIBarButtonItem = UIBarButtonItem.init(barButtonSystemItem:.action, target: self, action: #selector(userDidTapShare))
         presenceButton.addTarget(self, action: #selector(goToPresenceView), for: .touchDown)
         self.navigationItem.rightBarButtonItem = shareBar
@@ -60,7 +60,7 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         Label.numberOfLines = 0
         Label.lineBreakMode = .byWordWrapping
         Label.textColor = CustomColors.SecondColor
-        Label.font = UIFont(name: "Montserrat-Bold", size: 18)
+        Label.font = UIFont(name: CustomFont.MontserratBold, size: 18)
         return Label
     }()
     private let eventDescriptionLabel: UILabel = {
@@ -69,7 +69,7 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         Label.numberOfLines = 0
         Label.lineBreakMode = .byWordWrapping
         Label.textColor = CustomColors.ThirdColor
-        Label.font = UIFont(name: "Montserrat-Light", size: 14)
+        Label.font = UIFont(name: CustomFont.MontserratLight, size: 14)
         return Label
     }()
     private let eventDateLabel: UILabel = {
@@ -78,7 +78,7 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         Label.numberOfLines = 0
         Label.lineBreakMode = .byWordWrapping
         Label.textColor = CustomColors.SecondColor
-        Label.font = UIFont(name: "Montserrat-SemiBold", size: 14)
+        Label.font = UIFont(name: CustomFont.MontserratSemiBold, size: 14)
         return Label
     }()
     private let eventPriceLabel: UILabel = {
@@ -87,7 +87,7 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         Label.numberOfLines = 0
         Label.lineBreakMode = .byWordWrapping
         Label.textColor = CustomColors.SecondColor
-        Label.font = UIFont(name: "Montserrat-SemiBold", size: 14)
+        Label.font = UIFont(name: CustomFont.MontserratSemiBold, size: 14)
         return Label
     }()
     private let eventLocalLabel: UILabel = {
@@ -96,7 +96,7 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         Label.numberOfLines = 0
         Label.lineBreakMode = .byWordWrapping
         Label.textColor = CustomColors.SecondColor
-        Label.font = UIFont(name: "Montserrat-SemiBold", size: 14)
+        Label.font = UIFont(name: CustomFont.MontserratSemiBold, size: 14)
         return Label
     }()
     private let mapView: UIView = {
@@ -108,10 +108,10 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
     
     private let presenceButton: UIButton = {
         var button = UIButton()
-        button.setTitle("Inscreva-se", for: .normal)
+        
         button.layer.shadowOffset = CGSize(width: 0.0, height: 4.0)
         button.layer.cornerRadius = 8
-        button.titleLabel?.font = UIFont(name: "Montserrat-SemiBold", size: 16)
+        button.titleLabel?.font = UIFont(name: CustomFont.MontserratSemiBold, size: 16)
         button.backgroundColor = CustomColors.SecondColor
         return button
     }()
@@ -191,14 +191,14 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         let topMargin:CGFloat = 0
         let mapWidth:CGFloat = (view.frame.size.width)
         let mapHeight:CGFloat = (view.frame.size.width)
-      
+        
         eventMap.frame = CGRect(x: leftMargin, y: topMargin, width: mapWidth, height: mapHeight)
-      
+        
         eventMap.mapType = MKMapType.standard
         eventMap.isZoomEnabled = true
         eventMap.isScrollEnabled = true
         mapView.addSubview(eventMap)
-      
+        
         viewInScroll.addSubview(presenceButton)
         presenceButton.translatesAutoresizingMaskIntoConstraints = false
         presenceButton.leadingAnchor.constraint(equalTo: viewInScroll.leadingAnchor, constant: 47).isActive = true
@@ -207,30 +207,25 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         presenceButton.bottomAnchor.constraint(lessThanOrEqualTo: viewInScroll.bottomAnchor,constant: -24).isActive = true
         
     }
+    
     func configureView(){
-       
+        eventLocalLabel.text = "Buscando..."
+        eventImageView.image = UIImage(named: "imageError")
+        presenceButton.setTitle(viewModel.presenceButtonText, for: .normal)
         eventScrollView.isScrollEnabled = true
         eventTitleLabel.text = viewModel.event.title
         eventDescriptionLabel.text = viewModel.event.description
         let date = Components().convertEpochDateToString(epoch: viewModel.event.date)
-        eventDateLabel.text = "\(date)"
-        eventPriceLabel.text = "R$: \(viewModel.event.price)"
-        viewModel.getEventLocation() { (location) in
-            self.eventLocalLabel.text = "Local: \(location)"
+        eventDateLabel.text = date
+        eventPriceLabel.text = "\(viewModel.priceLabelText) \(viewModel.event.price)"
+        viewModel.eventPinLocation(eventMap: eventMap)
+        viewModel.getEventLocation() { [weak self] (location) in
+            guard let localLabelText = self?.viewModel.localLabelText else {return}
+            self?.eventLocalLabel.text = "\(localLabelText) \(location)"
         }
-        let event = MKPointAnnotation()
-        event.title = "Evento"
-        event.coordinate = CLLocationCoordinate2D(latitude: viewModel.event.latitude, longitude: viewModel.event.longitude)
-        eventMap.addAnnotation(event)
-        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: viewModel.event.latitude, longitude: viewModel.event.longitude), span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
-        eventMap.setRegion(region, animated: true)
-        let url = URL(string: viewModel.event.image)
-        if let url = url {
-        Components().getData(from: url) { data, response, error in
-                guard let data = data, error == nil else { return }
-                DispatchQueue.main.async() { [weak self] in
-                    self?.eventImageView.image = UIImage(data:data) ?? UIImage(named: "imageError")
-                }
+        viewModel.decodeImageFromAPI { [weak self] (image) in
+            DispatchQueue.main.async {
+                self?.eventImageView.image = image
             }
         }
     }
@@ -247,6 +242,5 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
                 
             }
         }
-        
     }
 }

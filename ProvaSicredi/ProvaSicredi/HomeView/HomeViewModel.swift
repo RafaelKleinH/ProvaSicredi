@@ -12,15 +12,20 @@ final class HomeViewModel {
     var homeCoordinator: HomeCoordinator
     var events: [Event] = []
     
+    let navigationTitle = "Eventos"
+    let errorLabelText = "Ops! \n Ocorreu algum erro. \n Clique no botão para tentar novamente."
+    let errorButtonTitle = "Recarregar"
+    let eventName = "eventCell"
+    
     init(coordinator: HomeCoordinator) {
         homeCoordinator = coordinator
     }
-
+    
     func getEvents(successIndicator: @escaping (Bool) -> Void){
-        APIMethods().getEvents { (events, error) in
+        APIMethods().getEvents { [weak self] (events, error) in
             if error == nil{
                 if let events = events {
-                    self.events = events
+                    self?.events = events
                     successIndicator(true)
                 }
                 else{

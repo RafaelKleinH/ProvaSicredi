@@ -11,7 +11,7 @@ import Foundation
 enum popupType {
     case APISucces
     case APIError
-
+    
 }
 
 class Popup: UIView{
@@ -86,7 +86,7 @@ class Popup: UIView{
                 
                 self.lbPopupTitle.text = "Feitos!"
                 self.lbPopupSecondLabel.text = "Sua inscrição foi enviada. \n\nEsperamos você no evento."
-            
+                
             }
         }else if(popupType == .APIError){
             DispatchQueue.main.async {
@@ -95,7 +95,7 @@ class Popup: UIView{
             }
         }
     }
-       
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

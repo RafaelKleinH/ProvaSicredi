@@ -12,5 +12,5 @@ class Event: Codable {
     var price: Double
     var title: String
     var id: String
-//  var cupons:[cupom] <- comentado pois esta inutilizavel por falta de informações, mas existe na API.
+    //  var cupons:[cupom] <- comentado pois esta inutilizavel por falta de informações, mas existe na API.
 }

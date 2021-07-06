@@ -42,6 +42,7 @@
 		9DB7A62B268A90FB006662E7 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A62A268A90FB006662E7 /* DetailsViewModel.swift */; };
 		9DB7A633268A9111006662E7 /* DetailsViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A632268A9111006662E7 /* DetailsViewCoordinator.swift */; };
 		9DB7A638268AAE24006662E7 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A637268AAE24006662E7 /* Components.swift */; };
+		9DDC892F2693AFDB009B600C /* FontSets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC892E2693AFDB009B600C /* FontSets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		9DB7A62A268A90FB006662E7 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		9DB7A632268A9111006662E7 /* DetailsViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewCoordinator.swift; sourceTree = "<group>"; };
 		9DB7A637268AAE24006662E7 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		9DDC892E2693AFDB009B600C /* FontSets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSets.swift; sourceTree = "<group>"; };
 		B814617F6643F5761EAB3659 /* Pods-ProvaSicredi-ProvaSicrediUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProvaSicredi-ProvaSicrediUITests.release.xcconfig"; path = "Target Support Files/Pods-ProvaSicredi-ProvaSicrediUITests/Pods-ProvaSicredi-ProvaSicrediUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BFD69B2FF06A114DFD87A3EC /* Pods-ProvaSicredi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProvaSicredi.release.xcconfig"; path = "Target Support Files/Pods-ProvaSicredi/Pods-ProvaSicredi.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -263,6 +265,7 @@
 				9D7CFF69268BB8D100A48C9E /* StringExtension.swift */,
 				9D5A6DA7268C2E430012E7B3 /* Popup.swift */,
 				9D4619A1268E36CA00C989A4 /* ColorSets.swift */,
+				9DDC892E2693AFDB009B600C /* FontSets.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D5A6DA8268C2E430012E7B3 /* Popup.swift in Sources */,
+				9DDC892F2693AFDB009B600C /* FontSets.swift in Sources */,
 				9DB7A600268A51F1006662E7 /* Event.swift in Sources */,
 				9D7CFF6F268BBDC300A48C9E /* PresenceDAO.swift in Sources */,
 				9DB7A615268A61D6006662E7 /* APIMethods.swift in Sources */,

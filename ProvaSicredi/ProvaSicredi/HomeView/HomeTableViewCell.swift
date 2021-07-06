@@ -12,6 +12,7 @@ class HomeTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(false, animated: false)
     }
@@ -19,29 +20,33 @@ class HomeTableViewCell: UITableViewCell {
     private let eventTitleLabel : UILabel = {
         var label = UILabel()
         label.numberOfLines = 0
-        label.font = UIFont(name: "Montserrat-SemiBold", size: 18)
+        label.font = UIFont(name: CustomFont.MontserratSemiBold, size: 18)
         label.textColor = CustomColors.SecondColor
         return label
     }()
+    
     private let eventImageView: UIImageView = {
         var imageView = UIImageView()
         imageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
         return imageView
     }()
+    
     private let eventDateLabel : UILabel = {
         var label = UILabel()
         label.numberOfLines = 0
-        label.font = UIFont(name: "Montserrat-Regular", size: 18)
+        label.font = UIFont(name: CustomFont.MontserratRegular, size: 18)
         label.textColor = CustomColors.ThirdColor
         return label
     }()
+    
     private let eventPriceLabel : UILabel = {
         var label = UILabel()
         label.numberOfLines = 0
-        label.font = UIFont(name: "Montserrat-Regular", size: 18)
+        label.font = UIFont(name: CustomFont.MontserratRegular, size: 18)
         label.textColor = CustomColors.ThirdColor
         return label
     }()
+    
     func setupConstraints(){
         backgroundColor = CustomColors.BackGroundColor
         
@@ -76,7 +81,6 @@ class HomeTableViewCell: UITableViewCell {
         
     }
     
-    
     func createCell(with event: Event){
         eventImageView.image = UIImage(named: "imageError")
         eventTitleLabel.text = event.title
@@ -85,7 +89,7 @@ class HomeTableViewCell: UITableViewCell {
         eventPriceLabel.text = "R$: \(event.price)"
         let url = URL(string: event.image)
         if let url = url {
-        Components().getData(from: url) { data, response, error in
+            Components().getData(from: url) { data, response, error in
                 guard let data = data, error == nil else { return }
                 DispatchQueue.main.async() { [weak self] in
                     self?.eventImageView.image = UIImage(data:data) ?? UIImage(named: "imageError")
