@@ -11,6 +11,9 @@ target 'ProvaSicredi' do
   	# TextField/Area pods
 		pod 'MaterialComponents/TextControls+FilledTextFields'
  
+	# Reactive Pods
+	pod 'RxSwift'
+	pod 'RxCocoa'
 
 
   target 'ProvaSicrediTests' do

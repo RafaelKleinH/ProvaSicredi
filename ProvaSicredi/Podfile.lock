@@ -35,19 +35,33 @@ PODS:
     - "MaterialComponents/private/TextControlsPrivate+FilledStyle"
     - "MaterialComponents/TextControls+BaseTextFields"
   - MDFInternationalization (2.0.0)
+  - RxCocoa (6.2.0):
+    - RxRelay (= 6.2.0)
+    - RxSwift (= 6.2.0)
+  - RxRelay (6.2.0):
+    - RxSwift (= 6.2.0)
+  - RxSwift (6.2.0)
 
 DEPENDENCIES:
   - "MaterialComponents/TextControls+FilledTextFields"
+  - RxCocoa
+  - RxSwift
 
 SPEC REPOS:
   trunk:
     - MaterialComponents
     - MDFInternationalization
+    - RxCocoa
+    - RxRelay
+    - RxSwift
 
 SPEC CHECKSUMS:
   MaterialComponents: b9f58f24bf74588a83b2dce05802a11aaed5257d
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
+  RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
+  RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
+  RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
 
-PODFILE CHECKSUM: 56a8649c91a7c6851f7215447d0e5d0859a2ec7f
+PODFILE CHECKSUM: 665697aae4702824d88697278a54519810b8d91e
 
 COCOAPODS: 1.10.1

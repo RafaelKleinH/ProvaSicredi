@@ -1,4 +1,6 @@
 import Foundation
+import RxSwift
+import RxCocoa
 
 final class PresenceViewModel {
     
@@ -6,7 +8,11 @@ final class PresenceViewModel {
     var event: Event
     let pop = Popup()
     let apiMethods = APIMethods()
+    let components = Components()
     var presenceViewString = PresenceViewStrings()
+    var nameTextFieldText = PublishSubject<String>()
+    var emailTextFieldText = PublishSubject<String>()
+    var disposeBag = DisposeBag()
     
     init(coordinator: PresenceCoordinator, event: Event) {
         self.coordinator = coordinator
@@ -19,5 +25,16 @@ final class PresenceViewModel {
         apiMethods.PostPresence(onComplete: { (error) in
             completion(error)
         }, body: presence)
+    }
+    
+    func validateTextFields() -> Observable<Bool> {
+        return Observable.combineLatest(nameTextFieldText.asObserver().startWith(""), emailTextFieldText.asObserver().startWith("")).map { (name, email) in
+            
+            if name != "" && email != ""{
+                return true
+            }else{
+                return false
+            }
+        }
     }
 }

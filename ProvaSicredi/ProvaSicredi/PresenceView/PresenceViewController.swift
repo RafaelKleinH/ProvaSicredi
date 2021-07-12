@@ -1,6 +1,9 @@
 import UIKit
 import Foundation
 import MaterialComponents
+import RxSwift
+import RxCocoa
+
 
 final class PresenceViewController: UIViewController {
     
@@ -20,12 +23,11 @@ final class PresenceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = CustomColors.BackGroundColor
-        navigationItem.title = PresenceViewStrings().navigationItemText
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: PresenceViewStrings().leftBarButtonImage), style: .plain, target: self, action: #selector(popToPrevious))
+        navigationItem.title = viewModel.presenceViewString.navigationItemText
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: viewModel.presenceViewString.leftBarButtonImage), style: .plain, target: self, action: #selector(popToPrevious))
         setupConstraints()
         setTexts()
-        submitButton.addTarget(self, action: #selector(validateTextFields), for: .touchDown)
-        viewModel.pop.btPopupConfirm.addTarget(self, action: #selector(popPopup), for: .touchDown)
+        setRxFunctions()
         let textAttributes = [NSAttributedString.Key.foregroundColor: CustomColors.BackGroundColor]
         navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
     }
@@ -36,6 +38,22 @@ final class PresenceViewController: UIViewController {
     
     @objc func popToPrevious(){
         viewModel.coordinator.popToPrevius()
+    }
+    
+    func setRxFunctions(){
+        nameTextField.rx.text.map { $0 ?? ""}.bind(to: viewModel.nameTextFieldText).disposed(by: viewModel.disposeBag)
+        emailTextField.rx.text.map { $0 ?? ""}.bind(to: viewModel.emailTextFieldText).disposed(by: viewModel.disposeBag)
+        
+        viewModel.validateTextFields().bind(to: submitButton.rx.isUserInteractionEnabled).disposed(by: viewModel.disposeBag)
+        viewModel.validateTextFields().map { $0 ? 1 : 0.5}.bind(to: submitButton.rx.alpha).disposed(by: viewModel.disposeBag)
+        
+        submitButton.rx.tap.bind { [weak self] in
+            self?.validateTextFields()
+        }.disposed(by: viewModel.disposeBag)
+        
+        viewModel.pop.btPopupConfirm.rx.tap.bind { [weak self] in
+            self?.popPopup()
+        }.disposed(by: viewModel.disposeBag)
     }
     
     private let nameTextField: MDCFilledTextField = {
@@ -62,8 +80,8 @@ final class PresenceViewController: UIViewController {
     
     func setTexts() {
         submitButton.setTitle(PresenceViewStrings().submitButtonTitle, for: .normal)
-        Components().styleTextFields(textfield: emailTextField, placeHolderText: PresenceViewStrings().emailTextFieldPlaceHolder)
-        Components().styleTextFields(textfield: nameTextField, placeHolderText: PresenceViewStrings().nameTextFieldPlaceHolder)
+        viewModel.components.styleTextFields(textfield: emailTextField, placeHolderText: viewModel.presenceViewString.emailTextFieldPlaceHolder)
+        viewModel.components.styleTextFields(textfield: nameTextField, placeHolderText: viewModel.presenceViewString.nameTextFieldPlaceHolder)
     }
     
     private func setupConstraints(){
@@ -97,26 +115,20 @@ final class PresenceViewController: UIViewController {
         }
     }
     
-    @objc func validateTextFields() {
+    func validateTextFields() {
         submitButton.isUserInteractionEnabled = false
-        if nameTextField.text != "" {
-            nameTextField.leadingAssistiveLabel.text = ""
+        
+        
+        if emailTextField.text?.isValidEmail == true{
+            emailTextField.leadingAssistiveLabel.text = ""
             
-            if emailTextField.text != "" && ((emailTextField.text?.isValidEmail) == true) {
-                emailTextField.leadingAssistiveLabel.text = ""
-                
-                guard let emailText = emailTextField.text,let name = nameTextField.text else {return}
-                postPresence(email: emailText, name: name)
-                
-                
-            }else{
-                submitButton.isUserInteractionEnabled = true
-                emailTextField.leadingAssistiveLabel.text = viewModel.presenceViewString.emailErrorText
-                
-            }
-        }else {
+            guard let emailText = emailTextField.text,let name = nameTextField.text else {return}
+            postPresence(email: emailText, name: name)
+            
+            
+        }else{
             submitButton.isUserInteractionEnabled = true
-            nameTextField.leadingAssistiveLabel.text = viewModel.presenceViewString.nameErrorText
+            emailTextField.leadingAssistiveLabel.text = viewModel.presenceViewString.emailErrorText
             
         }
     }
@@ -140,7 +152,7 @@ final class PresenceViewController: UIViewController {
         }
     }
     
-    @objc func popPopup(){
+    func popPopup(){
         viewModel.pop.removeFromSuperview()
     }
     
