@@ -7,7 +7,6 @@ class Components {
     
     func styleTextFields(textfield: MDCFilledTextField, placeHolderText: String){
         textfield.heightAnchor.constraint(greaterThanOrEqualToConstant: 56).isActive = true
-        textfield.widthAnchor.constraint(greaterThanOrEqualToConstant: 300).isActive = true
         textfield.adjustsFontSizeToFitWidth = true
         textfield.preferredContainerHeight = 56
         textfield.font = UIFont(name:"Montserrat-Regular", size: 16)

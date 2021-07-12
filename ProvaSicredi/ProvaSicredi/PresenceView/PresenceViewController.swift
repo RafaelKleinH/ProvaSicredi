@@ -122,7 +122,7 @@ final class PresenceViewController: UIViewController {
         if emailTextField.text?.isValidEmail == true{
             emailTextField.leadingAssistiveLabel.text = ""
             
-            guard let emailText = emailTextField.text,let name = nameTextField.text else {return}
+            guard let emailText = emailTextField.text, let name = nameTextField.text else {return}
             postPresence(email: emailText, name: name)
             
             

@@ -1,5 +1,7 @@
 import UIKit
 import MapKit
+import RxSwift
+import RxCocoa
 
 final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate, UIScrollViewDelegate {
     
@@ -23,11 +25,11 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         setupButtonConstraints()
         configureView()
         styleLabel()
+        setRxFunctions()
         eventScrollView.delegate = self
-        navigationItem.title = DetailsViewStrings().navigationTitle
+        navigationItem.title = viewModel.detailsViewString.navigationTitle
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: viewModel.detailsViewString.leftBarButtonImage), style: .plain, target: self, action: #selector(popToPrevious))
         let shareBar: UIBarButtonItem = UIBarButtonItem.init(barButtonSystemItem:.action, target: self, action: #selector(userDidTapShare))
-        presenceButton.addTarget(self, action: #selector(goToPresenceView), for: .touchDown)
         self.navigationItem.rightBarButtonItem = shareBar
         navigationController?.interactivePopGestureRecognizer?.delegate = self
         let textAttributes = [NSAttributedString.Key.foregroundColor: CustomColors.BackGroundColor]
@@ -98,6 +100,14 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         button.backgroundColor = CustomColors.SecondColor
         return button
     }()
+    
+    func setRxFunctions(){
+        
+        presenceButton.rx.tap.bind { [weak self] in
+            self?.goToPresenceView()
+        }.disposed(by: viewModel.disposeBag)
+
+    }
     
     func styleLabel(){
         

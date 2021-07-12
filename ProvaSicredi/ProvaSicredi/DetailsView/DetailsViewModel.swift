@@ -2,6 +2,7 @@ import Foundation
 import CoreLocation
 import UIKit
 import MapKit
+import RxSwift
 
 final class DetailsViewModel {
     
@@ -10,6 +11,7 @@ final class DetailsViewModel {
     let assets = Assets()
     let detailsViewString = DetailsViewStrings()
     let components = Components()
+    let disposeBag = DisposeBag()
     
     required init(coordinator:DetailsViewCoordinator, event: Event) {
         self.coordinator = coordinator
