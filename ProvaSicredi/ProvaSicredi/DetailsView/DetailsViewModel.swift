@@ -7,6 +7,9 @@ final class DetailsViewModel {
     
     var coordinator: DetailsViewCoordinator
     var event: Event
+    let assets = Assets()
+    let detailsViewString = DetailsViewStrings()
+    let components = Components()
     
     required init(coordinator:DetailsViewCoordinator, event: Event) {
         self.coordinator = coordinator
@@ -24,51 +27,53 @@ final class DetailsViewModel {
         let loc: CLLocation = CLLocation(latitude:center.latitude, longitude: center.longitude)
         
         ceo.reverseGeocodeLocation(loc, completionHandler: {(placemarks, error) in
-            if (error != nil){
-                print("reverse geodcode fail: \(error!.localizedDescription)")
-            }
             if let pm = placemarks{
                 
                 if pm.count > 0 {
-                    let pm = placemarks![0]
+                    let pm = placemarks?[0]
                     var addressString : String = ""
-                    if pm.name != nil{
-                        addressString = addressString + pm.name! + ", "
-                    }
-                    if pm.subLocality != nil {
-                        addressString = addressString + pm.subLocality! + ", "
-                    }
-                    if pm.locality != nil {
-                        addressString = addressString + pm.locality! + ", "
-                    }
-                    if pm.country != nil {
-                        addressString = addressString + pm.country! + " "
-                    }
                     
-                    localFormatted(addressString)
-                    
+                    if let pm = pm {
+                        if let pmName = pm.name{
+                            addressString = "\(addressString) \(pmName)"
+                        }
+                        if let pmSubLocality = pm.subLocality {
+                            addressString = "\(addressString), \(pmSubLocality)"
+                        }
+                        if let pmLocality = pm.locality {
+                            addressString = "\(addressString), \(pmLocality)"
+                        }
+                        if let pmCountry = pm.country {
+                            addressString = "\(addressString), \(pmCountry)"
+                        }
+                        addressString = "\(addressString)."
+                        localFormatted(addressString)
+                    }else{
+                        localFormatted("Erro ao buscar o local no mapa")
+                    }
                 }
             }else{
                 localFormatted("Erro ao buscar o local no mapa")
+                
             }
         })
     }
     
     func eventPinLocation(eventMap: MKMapView){
-        let event = MKPointAnnotation()
-        event.title = DetailsViewStrings().mapPinText
-        event.coordinate = CLLocationCoordinate2D(latitude: self.event.latitude, longitude: self.event.longitude)
+        let eventMKPoint = MKPointAnnotation()
+        eventMKPoint.title = DetailsViewStrings().mapPinText
+        eventMKPoint.coordinate = CLLocationCoordinate2D(latitude: self.event.latitude, longitude: event.longitude)
         
-        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: self.event.latitude, longitude: self.event.longitude), span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
+        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: self.event.latitude, longitude: event.longitude), span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
         
-        eventMap.addAnnotation(event)
+        eventMap.addAnnotation(eventMKPoint)
         eventMap.setRegion(region, animated: true)
         
     }
     
     func shareEvent(with event: Event, image: UIImage?,onComplete: @escaping (UIActivityViewController) -> Void) {
         let title = "\(event.title)"
-        let date = "Data: \(Components().convertEpochDateToString(epoch: event.date))"
+        let date = "Data: \(assets.convertEpochDateToString(epoch: event.date))"
         let price = "RS: \(event.price)"
         var activityController = UIActivityViewController(activityItems: [title, price, date], applicationActivities: nil)
         if let image = image {
@@ -78,9 +83,9 @@ final class DetailsViewModel {
     }
     
     func decodeImageFromAPI(onComplete: @escaping (UIImage) -> Void){
-        let url = URL(string: self.event.image)
+        let url = URL(string: event.image)
         if let url = url {
-            Components().getData(from: url) { data, response, error in
+            assets.getData(from: url) { data, response, error in
                 guard let data = data, error == nil else { return }
                 
                 onComplete((UIImage(data:data) ?? UIImage(named: "imageError"))!)

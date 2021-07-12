@@ -45,7 +45,6 @@ final class APIService: Decodable {
                 }
                 else{
                     completion(nil, .statusCode)
-                    print(response.statusCode)
                 }
             }
             else{

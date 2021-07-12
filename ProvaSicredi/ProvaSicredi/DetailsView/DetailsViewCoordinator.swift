@@ -21,6 +21,7 @@ final class DetailsViewCoordinator: Coordinator {
     func popToPrevius() {
         navigationController.popViewController(animated: true)
     }
+    
     func goToPresenceView(){
         PresenceCoordinator(navigationController: navigationController, event: event).start()
     }

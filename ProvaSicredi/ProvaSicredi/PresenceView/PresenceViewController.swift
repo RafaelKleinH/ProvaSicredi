@@ -7,6 +7,7 @@ final class PresenceViewController: UIViewController {
     var viewModel: PresenceViewModel
     var activeTextField : UITextField? = nil
     
+    
     init(viewModel: PresenceViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -90,6 +91,11 @@ final class PresenceViewController: UIViewController {
         view.trailingAnchor.constraint(equalTo: submitButton.trailingAnchor, constant: 47).isActive = true
         
     }
+    func postPresence(email: String, name: String){
+        viewModel.postPresence(email: email, name: name) { [weak self] (error) in
+            self?.verifyAPIResponseHaveError(error: error)
+        }
+    }
     
     @objc func validateTextFields() {
         submitButton.isUserInteractionEnabled = false
@@ -100,18 +106,17 @@ final class PresenceViewController: UIViewController {
                 emailTextField.leadingAssistiveLabel.text = ""
                 
                 guard let emailText = emailTextField.text,let name = nameTextField.text else {return}
-                viewModel.postPresence(email: emailText, name: name) { [weak self] (error) in
-                    self?.verifyAPIResponseHaveError(error: error)
-                    
-                }
+                postPresence(email: emailText, name: name)
+                
+                
             }else{
                 submitButton.isUserInteractionEnabled = true
-                emailTextField.leadingAssistiveLabel.text = PresenceViewStrings().emailErrorText
+                emailTextField.leadingAssistiveLabel.text = viewModel.presenceViewString.emailErrorText
                 
             }
         }else {
             submitButton.isUserInteractionEnabled = true
-            nameTextField.leadingAssistiveLabel.text = PresenceViewStrings().nameErrorText
+            nameTextField.leadingAssistiveLabel.text = viewModel.presenceViewString.nameErrorText
             
         }
     }
@@ -149,12 +154,14 @@ extension PresenceViewController : UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         self.activeTextField = textField
     }
+    
     func textFieldDidEndEditing(_ textfield: UITextField) {
         self.activeTextField = nil
         if let nextField = view.viewWithTag(textfield.tag + 1) as? UITextField {
             nextField.becomeFirstResponder()
         }
     }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
     }

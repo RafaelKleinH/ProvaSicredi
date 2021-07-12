@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Eventus precisa de permissão para acessar a biblioteca de imagens.</string>
+	<string>E-ventos precisa de permissão para acessar a biblioteca de imagens.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Montserrat-Bold.ttf</string>

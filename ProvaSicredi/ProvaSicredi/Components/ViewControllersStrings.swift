@@ -1,10 +1,3 @@
-//
-//  ViewControllersStrings.swift
-//  ProvaSicredi
-//
-//  Created by Rafael Hartmann on 06/07/21.
-//
-
 import Foundation
 
 struct HomeViewStrings {
@@ -23,6 +16,7 @@ struct DetailsViewStrings {
     let mapPinText = "Evento"
     let priceLabelText = "R$:"
     let localLabelText = "Local:"
+    let localLoadingLabelText = "Buscando..."
 }
 struct PresenceViewStrings {
     let navigationItemText = "Inscrição"
