@@ -1,10 +1,3 @@
-//
-//  DetailsViewController.swift
-//  ProvaSicredi
-//
-//  Created by Rafael Hartmann on 28/06/21.
-//
-
 import UIKit
 import MapKit
 
@@ -23,11 +16,16 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupConstraints()
+        setupEventScrollViewConstraints()
+        setupViewInScrollConstraits()
+        setupEventsDetailsConstraints()
+        setupMapViewConstraints()
+        setupButtonConstraints()
         configureView()
+        styleLabel()
         eventScrollView.delegate = self
-        navigationItem.title = viewModel.navigationTitle
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: viewModel.leftBarButtonImage), style: .plain, target: self, action: #selector(popToPrevious))
+        navigationItem.title = DetailsViewStrings().navigationTitle
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: viewModel.detailsViewString.leftBarButtonImage), style: .plain, target: self, action: #selector(popToPrevious))
         let shareBar: UIBarButtonItem = UIBarButtonItem.init(barButtonSystemItem:.action, target: self, action: #selector(userDidTapShare))
         presenceButton.addTarget(self, action: #selector(goToPresenceView), for: .touchDown)
         self.navigationItem.rightBarButtonItem = shareBar
@@ -45,65 +43,50 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         scrollView.backgroundColor = CustomColors.BackGroundColor
         return scrollView
     }()
+    
     private let viewInScroll: UIView = {
         let view = UIView()
         view.backgroundColor = CustomColors.BackGroundColor
         return view
     }()
+    
     private let eventImageView: UIImageView = {
         var imageView = UIImageView()
         imageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
         return imageView
     }()
+    
     private let eventTitleLabel: UILabel = {
         var Label = UILabel()
-        Label.numberOfLines = 0
-        Label.lineBreakMode = .byWordWrapping
-        Label.textColor = CustomColors.SecondColor
-        Label.font = UIFont(name: CustomFont.MontserratBold, size: 18)
         return Label
     }()
+    
     private let eventDescriptionLabel: UILabel = {
         var Label = UILabel()
-        Label.textColor = .white
-        Label.numberOfLines = 0
-        Label.lineBreakMode = .byWordWrapping
-        Label.textColor = CustomColors.ThirdColor
-        Label.font = UIFont(name: CustomFont.MontserratLight, size: 14)
         return Label
     }()
+    
     private let eventDateLabel: UILabel = {
         var Label = UILabel()
-        Label.textColor = .white
-        Label.numberOfLines = 0
-        Label.lineBreakMode = .byWordWrapping
-        Label.textColor = CustomColors.SecondColor
-        Label.font = UIFont(name: CustomFont.MontserratSemiBold, size: 14)
         return Label
     }()
+    
     private let eventPriceLabel: UILabel = {
         var Label = UILabel()
-        Label.textColor = .white
-        Label.numberOfLines = 0
-        Label.lineBreakMode = .byWordWrapping
-        Label.textColor = CustomColors.SecondColor
-        Label.font = UIFont(name: CustomFont.MontserratSemiBold, size: 14)
         return Label
     }()
+    
     private let eventLocalLabel: UILabel = {
         var Label = UILabel()
-        Label.textColor = .white
-        Label.numberOfLines = 0
-        Label.lineBreakMode = .byWordWrapping
-        Label.textColor = CustomColors.SecondColor
-        Label.font = UIFont(name: CustomFont.MontserratSemiBold, size: 14)
         return Label
     }()
+    
     private let mapView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
         return view
     }()
+    
     private let eventMap = MKMapView()
     
     private let presenceButton: UIButton = {
@@ -116,8 +99,16 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         return button
     }()
     
+    func styleLabel(){
+        
+        viewModel.components.styleDetailsViewLabels(color: CustomColors.SecondColor, Label: eventTitleLabel, fontSize: 18, font: CustomFont.MontserratBold)
+        viewModel.components.styleDetailsViewLabels(color: CustomColors.ThirdColor, Label: eventDescriptionLabel, fontSize: 14, font: CustomFont.MontserratLight)
+        viewModel.components.styleDetailsViewLabels(color: CustomColors.SecondColor, Label: eventDateLabel, fontSize: 14, font: CustomFont.MontserratSemiBold)
+        viewModel.components.styleDetailsViewLabels(color: CustomColors.SecondColor, Label: eventPriceLabel, fontSize: 14, font: CustomFont.MontserratSemiBold)
+        viewModel.components.styleDetailsViewLabels(color: CustomColors.SecondColor, Label: eventLocalLabel, fontSize: 14, font: CustomFont.MontserratSemiBold)
+    }
     
-    func setupConstraints(){
+    func setupEventScrollViewConstraints(){
         
         view.addSubview(eventScrollView)
         eventScrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -125,7 +116,10 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         eventScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         eventScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         eventScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-        
+        eventScrollView.widthAnchor.constraint(equalToConstant: view.bounds.width).isActive = true
+    }
+    
+    func setupViewInScrollConstraits(){
         
         eventScrollView.addSubview(viewInScroll)
         viewInScroll.translatesAutoresizingMaskIntoConstraints = false
@@ -134,7 +128,9 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         viewInScroll.trailingAnchor.constraint(equalTo: eventScrollView.trailingAnchor, constant: 0).isActive = true
         viewInScroll.widthAnchor.constraint(equalTo: eventScrollView.widthAnchor).isActive = true
         viewInScroll.bottomAnchor.constraint(equalTo: eventScrollView.bottomAnchor).isActive = true
-        
+    }
+    
+    func setupEventsDetailsConstraints() {
         
         viewInScroll.addSubview(eventImageView)
         eventImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -178,14 +174,16 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         eventLocalLabel.leadingAnchor.constraint(equalTo: eventScrollView.leadingAnchor, constant: 12).isActive = true
         view.trailingAnchor.constraint(equalTo: eventLocalLabel.trailingAnchor, constant: 12).isActive = true
         
-        
+    }
+    
+    func setupMapViewConstraints(){
+
         viewInScroll.addSubview(mapView)
         mapView.translatesAutoresizingMaskIntoConstraints = false
         mapView.topAnchor.constraint(equalTo: eventLocalLabel.bottomAnchor, constant: 12).isActive = true
         mapView.leadingAnchor.constraint(equalTo: eventScrollView.leadingAnchor, constant: 0).isActive = true
         view.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: 0).isActive = true
         mapView.heightAnchor.constraint(equalToConstant: view.frame.size.width).isActive = true
-        
         
         let leftMargin:CGFloat = 0
         let topMargin:CGFloat = 0
@@ -198,6 +196,10 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         eventMap.isZoomEnabled = true
         eventMap.isScrollEnabled = true
         mapView.addSubview(eventMap)
+         
+    }
+    
+    func setupButtonConstraints(){
         
         viewInScroll.addSubview(presenceButton)
         presenceButton.translatesAutoresizingMaskIntoConstraints = false
@@ -205,23 +207,28 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
         view.trailingAnchor.constraint(equalTo: presenceButton.trailingAnchor, constant: 47).isActive = true
         presenceButton.topAnchor.constraint(equalTo: eventMap.bottomAnchor,constant: 24).isActive = true
         presenceButton.bottomAnchor.constraint(lessThanOrEqualTo: viewInScroll.bottomAnchor,constant: -24).isActive = true
-        
+
     }
     
     func configureView(){
-        eventLocalLabel.text = "Buscando..."
+        
+        eventLocalLabel.text = viewModel.detailsViewString.localLoadingLabelText
         eventImageView.image = UIImage(named: "imageError")
-        presenceButton.setTitle(viewModel.presenceButtonText, for: .normal)
+        presenceButton.setTitle(viewModel.detailsViewString.presenceButtonText, for: .normal)
         eventScrollView.isScrollEnabled = true
         eventTitleLabel.text = viewModel.event.title
         eventDescriptionLabel.text = viewModel.event.description
-        let date = Components().convertEpochDateToString(epoch: viewModel.event.date)
+        let date = viewModel.assets.convertEpochDateToString(epoch: viewModel.event.date)
         eventDateLabel.text = date
-        eventPriceLabel.text = "\(viewModel.priceLabelText) \(viewModel.event.price)"
+        eventPriceLabel.text = "\(viewModel.detailsViewString.priceLabelText) \(viewModel.event.price)"
         viewModel.eventPinLocation(eventMap: eventMap)
-        viewModel.getEventLocation() { [weak self] (location) in
-            guard let localLabelText = self?.viewModel.localLabelText else {return}
-            self?.eventLocalLabel.text = "\(localLabelText) \(location)"
+        DispatchQueue.global().async { [weak self] in
+            self?.viewModel.getEventLocation() { [weak self] (location) in
+                guard let localLabelText = self?.viewModel.detailsViewString.localLabelText else {return}
+                DispatchQueue.main.async {
+                    self?.eventLocalLabel.text = "\(localLabelText) \(location)"
+                }
+            }
         }
         viewModel.decodeImageFromAPI { [weak self] (image) in
             DispatchQueue.main.async {
@@ -233,9 +240,11 @@ final class DetailsViewController: UIViewController, UIGestureRecognizerDelegate
     @objc func popToPrevious(){
         viewModel.coordinator.popToPrevius()
     }
+    
     @objc func goToPresenceView(){
         viewModel.coordinator.goToPresenceView()
     }
+    
     @objc func userDidTapShare() {
         viewModel.shareEvent(with: viewModel.event, image: eventImageView.image) { (ActivityViewController) in
             self.present(ActivityViewController, animated: true) {

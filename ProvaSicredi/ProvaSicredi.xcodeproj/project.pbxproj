@@ -13,6 +13,7 @@
 		9D1D592B268BF75D00C1853C /* StrignUtilsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D592A268BF75D00C1853C /* StrignUtilsTest.swift */; };
 		9D1D5933268BFEF700C1853C /* ProvaSicrediTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D5932268BFEF700C1853C /* ProvaSicrediTests.swift */; };
 		9D1D593B268BFFCD00C1853C /* EpochDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D593A268BFFCD00C1853C /* EpochDateTest.swift */; };
+		9D29BC992694D2440009A133 /* ViewControllersStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D29BC982694D2440009A133 /* ViewControllersStrings.swift */; };
 		9D4619A2268E36CA00C989A4 /* ColorSets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4619A1268E36CA00C989A4 /* ColorSets.swift */; };
 		9D5A6DA8268C2E430012E7B3 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A6DA7268C2E430012E7B3 /* Popup.swift */; };
 		9D7CFF2A268B8CEF00A48C9E /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D7CFF29268B8CEF00A48C9E /* Montserrat-SemiBold.ttf */; };
@@ -35,7 +36,6 @@
 		9DB7A5F1268A49B6006662E7 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A5F0268A49B6006662E7 /* HomeViewModel.swift */; };
 		9DB7A5FA268A51A9006662E7 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A5F9268A51A9006662E7 /* APIService.swift */; };
 		9DB7A600268A51F1006662E7 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A5FF268A51F1006662E7 /* Event.swift */; };
-		9DB7A605268A5218006662E7 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A604268A5218006662E7 /* People.swift */; };
 		9DB7A615268A61D6006662E7 /* APIMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A614268A61D6006662E7 /* APIMethods.swift */; };
 		9DB7A61A268A662D006662E7 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A619268A662D006662E7 /* HomeTableViewCell.swift */; };
 		9DB7A623268A90EF006662E7 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A622268A90EF006662E7 /* DetailsViewController.swift */; };
@@ -43,6 +43,7 @@
 		9DB7A633268A9111006662E7 /* DetailsViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A632268A9111006662E7 /* DetailsViewCoordinator.swift */; };
 		9DB7A638268AAE24006662E7 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB7A637268AAE24006662E7 /* Components.swift */; };
 		9DDC892F2693AFDB009B600C /* FontSets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC892E2693AFDB009B600C /* FontSets.swift */; };
+		9DFCF49C2698D3B2004C8AD5 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFCF49B2698D3B2004C8AD5 /* Assets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		9D1D592A268BF75D00C1853C /* StrignUtilsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrignUtilsTest.swift; sourceTree = "<group>"; };
 		9D1D5932268BFEF700C1853C /* ProvaSicrediTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvaSicrediTests.swift; sourceTree = "<group>"; };
 		9D1D593A268BFFCD00C1853C /* EpochDateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpochDateTest.swift; sourceTree = "<group>"; };
+		9D29BC982694D2440009A133 /* ViewControllersStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllersStrings.swift; sourceTree = "<group>"; };
 		9D4619A1268E36CA00C989A4 /* ColorSets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSets.swift; sourceTree = "<group>"; };
 		9D5A6DA7268C2E430012E7B3 /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
 		9D7CFF29268B8CEF00A48C9E /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -101,7 +103,6 @@
 		9DB7A5F0268A49B6006662E7 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		9DB7A5F9268A51A9006662E7 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		9DB7A5FF268A51F1006662E7 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		9DB7A604268A5218006662E7 /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
 		9DB7A614268A61D6006662E7 /* APIMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMethods.swift; sourceTree = "<group>"; };
 		9DB7A619268A662D006662E7 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		9DB7A622268A90EF006662E7 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +110,7 @@
 		9DB7A632268A9111006662E7 /* DetailsViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewCoordinator.swift; sourceTree = "<group>"; };
 		9DB7A637268AAE24006662E7 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		9DDC892E2693AFDB009B600C /* FontSets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSets.swift; sourceTree = "<group>"; };
+		9DFCF49B2698D3B2004C8AD5 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		B814617F6643F5761EAB3659 /* Pods-ProvaSicredi-ProvaSicrediUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProvaSicredi-ProvaSicrediUITests.release.xcconfig"; path = "Target Support Files/Pods-ProvaSicredi-ProvaSicrediUITests/Pods-ProvaSicredi-ProvaSicrediUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BFD69B2FF06A114DFD87A3EC /* Pods-ProvaSicredi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProvaSicredi.release.xcconfig"; path = "Target Support Files/Pods-ProvaSicredi/Pods-ProvaSicredi.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -218,10 +220,11 @@
 				9DB7A5FE268A51E2006662E7 /* Models */,
 				9DB7A5F8268A5190006662E7 /* WebService */,
 				9DB7A5E7268A48FC006662E7 /* Components */,
+				9DFCF4972698D28C004C8AD5 /* Assets */,
 				9D7CFF28268B8CA100A48C9E /* Fonts */,
-				9DB7A5B3268A483B006662E7 /* LaunchScreen.storyboard */,
-				9DB7A5B1268A483B006662E7 /* Assets.xcassets */,
 				9DB7A5B6268A483B006662E7 /* Info.plist */,
+				9DB7A5B1268A483B006662E7 /* Assets.xcassets */,
+				9DB7A5B3268A483B006662E7 /* LaunchScreen.storyboard */,
 			);
 			path = ProvaSicredi;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				9D5A6DA7268C2E430012E7B3 /* Popup.swift */,
 				9D4619A1268E36CA00C989A4 /* ColorSets.swift */,
 				9DDC892E2693AFDB009B600C /* FontSets.swift */,
+				9D29BC982694D2440009A133 /* ViewControllersStrings.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -283,7 +287,6 @@
 			isa = PBXGroup;
 			children = (
 				9DB7A5FF268A51F1006662E7 /* Event.swift */,
-				9DB7A604268A5218006662E7 /* People.swift */,
 				9D7CFF6E268BBDC300A48C9E /* PresenceDAO.swift */,
 			);
 			path = Models;
@@ -297,6 +300,14 @@
 				9DB7A632268A9111006662E7 /* DetailsViewCoordinator.swift */,
 			);
 			path = DetailsView;
+			sourceTree = "<group>";
+		};
+		9DFCF4972698D28C004C8AD5 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				9DFCF49B2698D3B2004C8AD5 /* Assets.swift */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -542,6 +553,7 @@
 			files = (
 				9D5A6DA8268C2E430012E7B3 /* Popup.swift in Sources */,
 				9DDC892F2693AFDB009B600C /* FontSets.swift in Sources */,
+				9DFCF49C2698D3B2004C8AD5 /* Assets.swift in Sources */,
 				9DB7A600268A51F1006662E7 /* Event.swift in Sources */,
 				9D7CFF6F268BBDC300A48C9E /* PresenceDAO.swift in Sources */,
 				9DB7A615268A61D6006662E7 /* APIMethods.swift in Sources */,
@@ -552,13 +564,13 @@
 				9D7CFF42268BA05E00A48C9E /* PresenceViewModel.swift in Sources */,
 				9DB7A5F1268A49B6006662E7 /* HomeViewModel.swift in Sources */,
 				9DB7A61A268A662D006662E7 /* HomeTableViewCell.swift in Sources */,
-				9DB7A605268A5218006662E7 /* People.swift in Sources */,
 				9DB7A5E3268A48F5006662E7 /* HomeCoordinator.swift in Sources */,
 				9D7CFF47268BA06C00A48C9E /* PresenceCoordinator.swift in Sources */,
 				9DB7A5E9268A4909006662E7 /* CoordinatorProtocol.swift in Sources */,
 				9D7CFF3A268BA05200A48C9E /* PresenceViewController.swift in Sources */,
 				9D4619A2268E36CA00C989A4 /* ColorSets.swift in Sources */,
 				9DB7A62B268A90FB006662E7 /* DetailsViewModel.swift in Sources */,
+				9D29BC992694D2440009A133 /* ViewControllersStrings.swift in Sources */,
 				9DB7A5A9268A483A006662E7 /* AppDelegate.swift in Sources */,
 				9D7CFF6A268BB8D100A48C9E /* StringExtension.swift in Sources */,
 				9DB7A5AB268A483A006662E7 /* SceneDelegate.swift in Sources */,
@@ -736,6 +748,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 49M73U85TS;
 				INFOPLIST_FILE = ProvaSicredi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -756,6 +769,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 49M73U85TS;
 				INFOPLIST_FILE = ProvaSicredi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

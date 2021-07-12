@@ -1,10 +1,3 @@
-//
-//  DontSets.swift
-//  ProvaSicredi
-//
-//  Created by Rafael Hartmann on 05/07/21.
-//
-
 import Foundation
 
 enum CustomFont {

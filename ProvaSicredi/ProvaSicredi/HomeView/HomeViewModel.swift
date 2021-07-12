@@ -1,21 +1,20 @@
-//
-//  HomeViewModel.swift
-//  ProvaSicredi
-//
-//  Created by Rafael Hartmann on 28/06/21.
-//
-
 import Foundation
+
+enum SetupHomeConstraintsEnum {
+    case loading
+    case table
+    case error
+}
+enum EnumRemoveType {
+    case tableView
+    case error
+}
 
 final class HomeViewModel {
     
     var homeCoordinator: HomeCoordinator
     var events: [Event] = []
-    
-    let navigationTitle = "Eventos"
-    let errorLabelText = "Ops! \n Ocorreu algum erro. \n Clique no botão para tentar novamente."
-    let errorButtonTitle = "Recarregar"
-    let eventName = "eventCell"
+    let homeViewStrings = HomeViewStrings()
     
     init(coordinator: HomeCoordinator) {
         homeCoordinator = coordinator
@@ -23,19 +22,13 @@ final class HomeViewModel {
     
     func getEvents(successIndicator: @escaping (Bool) -> Void){
         APIMethods().getEvents { [weak self] (events, error) in
-            if error == nil{
-                if let events = events {
-                    self?.events = events
-                    successIndicator(true)
-                }
-                else{
-                    successIndicator(false)
-                }
-                
-            }else{
+            if let events = events {
+                self?.events = events
+                successIndicator(true)
+            }
+            else{
                 successIndicator(false)
             }
         }
-        
     }
 }

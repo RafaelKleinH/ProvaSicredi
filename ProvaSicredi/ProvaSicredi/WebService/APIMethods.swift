@@ -14,7 +14,6 @@ final class APIMethods {
                         onComplete(data, nil)
                     }
                     catch{
-                        print("JSON Serialization error")
                         onComplete(nil,.decodable)
                     }
                 }

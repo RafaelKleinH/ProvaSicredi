@@ -1,10 +1,3 @@
-//
-//  DetailsViewCoordinator.swift
-//  ProvaSicredi
-//
-//  Created by Rafael Hartmann on 28/06/21.
-//
-
 import Foundation
 import UIKit
 
@@ -28,6 +21,7 @@ final class DetailsViewCoordinator: Coordinator {
     func popToPrevius() {
         navigationController.popViewController(animated: true)
     }
+    
     func goToPresenceView(){
         PresenceCoordinator(navigationController: navigationController, event: event).start()
     }

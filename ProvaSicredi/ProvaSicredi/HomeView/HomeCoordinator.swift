@@ -15,5 +15,7 @@ final class HomeCoordinator: Coordinator {
         navigationController.pushViewController(viewController, animated: true)
     }
     
-    
+    func goToDetailsView(event: Event){
+        DetailsViewCoordinator(navigationController: navigationController, event: event).start()
+    }
 }

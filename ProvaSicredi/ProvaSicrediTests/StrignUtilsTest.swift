@@ -1,11 +1,3 @@
-//
-//  StrignUtilsTest.swift
-//  ProvaSicrediTests
-//
-//  Created by Rafael Hartmann on 29/06/21.
-//
-
-
 import XCTest
 
 @testable import ProvaSicredi
